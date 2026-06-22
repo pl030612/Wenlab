@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="WenLab Multipage Site - About" subtitle="Cleaner layout with larger titles, affiliations before academic service" -->
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>關於溫在弘教授 | WenLab — NTU 地理環境資源學系</title>
+<meta name="description" content="溫在弘教授學術簡介、學歷、學術服務、編輯職務與專業背景介紹。國立臺灣大學地理環境資源學系教授。">
+<meta name="author" content="Wen-Hung Tung, Department of Geography, National Taiwan University">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://wenlab501.github.io/about.html">
+<link rel="icon" type="image/png" href="assets/Wenlab_logo.png">
+<link href="stylesheets/all-5.3.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ===== About — 經歷 career timeline ===== */
+  .cv-timeline { position:relative; padding-left:24px; }
+  .cv-timeline::before { content:''; position:absolute; left:6px; top:6px; bottom:8px; width:2px; background:var(--wen-border); }
+  .cv-tl-item { position:relative; padding-bottom:18px; }
+  .cv-tl-item:last-child { padding-bottom:0; }
+  .cv-tl-item::before { content:''; position:absolute; left:-23px; top:4px; width:11px; height:11px; border-radius:50%; background:var(--wen-teal-light); border:2px solid var(--wen-surface); box-shadow:0 0 0 1px var(--wen-border); }
+  .cv-tl-item.is-current::before { background:var(--wen-navy); }
+  .cv-tl-date { font-family:var(--font-h); font-size:12.5px; font-weight:700; color:var(--wen-teal); letter-spacing:.02em; margin-bottom:2px; font-variant-numeric:tabular-nums; }
+  .cv-tl-role { font-size:15px; font-weight:600; color:var(--wen-text); line-height:1.55; }
+
+  /* ===== About — service & honors accordion (native <details>) ===== */
+  .cv-acc { background:var(--wen-surface); border:1px solid var(--wen-border); border-radius:10px; margin-bottom:12px; box-shadow:var(--shadow-subtle); overflow:hidden; }
+  .cv-acc[open] { box-shadow:var(--shadow-card); }
+  .cv-acc > summary { list-style:none; cursor:pointer; display:flex; align-items:center; gap:10px; padding:15px 20px; font-family:var(--font-h); font-weight:700; font-size:1rem; color:var(--wen-text); transition:background var(--t); }
+  .cv-acc > summary::-webkit-details-marker { display:none; }
+  .cv-acc > summary:hover { background:var(--wen-cream); }
+  .cv-acc[open] > summary { background:var(--wen-cream); color:var(--wen-navy); border-bottom:1px solid var(--wen-border); }
+  .cv-acc-icon { color:var(--wen-teal); font-size:18px; }
+  .cv-count { font-size:12px; font-weight:600; color:var(--wen-teal); background:var(--wen-teal-pale); border-radius:20px; padding:1px 9px; }
+  .cv-chev { margin-left:auto; color:var(--wen-text-muted); font-size:14px; transition:transform var(--t); }
+  .cv-acc[open] .cv-chev { transform:rotate(180deg); }
+  .cv-acc-body { padding:6px 20px 14px; }
+  .cv-row { display:flex; gap:16px; padding:9px 0; border-bottom:1px dashed var(--wen-border); }
+  .cv-row:last-child { border-bottom:none; }
+  .cv-when { flex:0 0 162px; font-family:var(--font-h); font-size:12.5px; font-weight:700; color:var(--wen-teal); line-height:1.55; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .cv-what { flex:1; font-size:14px; color:var(--wen-text-sub); line-height:1.6; }
+  @media (max-width:575.98px){
+    .cv-row { flex-direction:column; gap:1px; }
+    .cv-when { flex-basis:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<section class="page-header" style="background:url('assets/about-header-bg.png') center/cover, #dde8ec;padding:80px 24px 60px;">
+  <div class="container" style="max-width:1200px;">
+    <h1 style="font-family:var(--font-h);font-weight:800;color:#003244 !important;">
+      <span style="font-size:1.5rem;font-weight:600;opacity:0.7;" data-zh="關於" data-en="About">關於</span><span style="font-size:2.8rem;margin:0 6px;" data-zh="溫在弘" data-en="Wen-Hung Tung">溫在弘</span><span style="font-size:1.5rem;font-weight:600;opacity:0.7;" data-zh="教授" data-en="">教授</span>
+    </h1>
+  </div>
+</section>
+
+<section class="section-py">
+  <div class="container" style="max-width:1200px;">
+    <div class="row g-5">
+      <!-- Left -->
+      <div class="col-lg-4">
+        <div style="position:sticky;top:100px;display:flex;flex-direction:column;gap:24px;">
+        <div class="wen-card" style="text-align:center;padding:0;overflow:hidden;height:auto;">
+          <img src="assets/dr_wen_portrait.png" alt="溫在弘教授"
+               style="width:100%;height:320px;object-fit:cover;object-position:top center;display:block;">
+          <div style="padding:24px 20px;">
+            <h3 style="font-family:var(--font-h);font-weight:800;font-size:1.5rem;color:var(--wen-text);margin-bottom:6px;"
+                data-zh="溫在弘 教授" data-en="Prof. Wen-Hung Tung">溫在弘 教授</h3>
+            <div style="font-size:14px;color:var(--wen-text-sub);margin-bottom:18px;line-height:1.6;"
+                 data-zh="國立臺灣大學地理環境資源學系"
+                 data-en="Dept. of Geography, NTU">
+                 國立臺灣大學地理環境資源學系</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <a href="https://scholar.google.com/citations?user=cgG8BWEAAAAJ&amp;hl=en" target="_blank"
+                 style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--wen-blue);font-weight:600;justify-content:center;text-decoration:none;">
+                <i class="bi bi-google"></i>Google Scholar
+              </a>
+              <a href="https://www.webofscience.com/wos/author/record/H-2635-2018" target="_blank"
+                 style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--wen-blue);font-weight:600;justify-content:center;text-decoration:none;">
+                <i class="bi bi-book-fill"></i>RearcherID
+              </a>
+              <a href="https://orcid.org/0000-0002-9151-8336" target="_blank"
+                 style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--wen-blue);font-weight:600;justify-content:center;text-decoration:none;">
+                <i class="bi bi-person-fill"></i>ORCID iD
+              </a>
+              <a href="https://wenlab501.github.io/" target="_blank"
+                 style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--wen-blue);font-weight:600;justify-content:center;text-decoration:none;">
+                <i class="bi bi-github"></i> WenLab GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="wen-card" style="padding:22px 24px;height:auto;">
+          <div style="font-family:var(--font-h);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--wen-teal);margin-bottom:14px;" data-zh="研究興趣" data-en="Research Interests">研究興趣</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="display:inline-block;background:var(--wen-teal-pale);color:var(--wen-blue);font-family:var(--font-h);font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:20px;line-height:1.4;" data-zh="傳染病群聚與擴散" data-en="Disease Clustering &amp; Diffusion">傳染病群聚與擴散</span>
+            <span style="display:inline-block;background:var(--wen-teal-pale);color:var(--wen-blue);font-family:var(--font-h);font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:20px;line-height:1.4;" data-zh="醫療資源空間配置" data-en="Healthcare Resource Allocation">醫療資源空間配置</span>
+            <span style="display:inline-block;background:var(--wen-teal-pale);color:var(--wen-blue);font-family:var(--font-h);font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:20px;line-height:1.4;" data-zh="都市路網與交通" data-en="Urban Networks &amp; Traffic">都市路網與交通</span>
+            <span style="display:inline-block;background:var(--wen-teal-pale);color:var(--wen-blue);font-family:var(--font-h);font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:20px;line-height:1.4;" data-zh="都市環境地理過程" data-en="Urban Environmental Processes">都市環境地理過程</span>
+            <span style="display:inline-block;background:var(--wen-teal-pale);color:var(--wen-blue);font-family:var(--font-h);font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:20px;line-height:1.4;" data-zh="GIS 與空間分析" data-en="GIS &amp; Spatial Analysis">GIS 與空間分析</span>
+          </div>
+        </div>
+
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="col-lg-8">
+        <div style="margin-bottom:40px;">
+          <h4 style="font-family:var(--font-h);font-weight:700;font-size:1.1rem;color:var(--wen-text);margin-bottom:16px;"
+               data-zh="學術簡介" data-en="Biography">學術簡介</h4>
+          <p style="font-size:16px;color:var(--wen-text-sub);line-height:1.9;margin-bottom:16px;"
+             data-zh="溫在弘博士於2009年8月起任職於國立台灣大學地理環境資源學系，兼任台大人口與性別研究中心、理學院全球變遷研究中心、統計碩士學位學程、傳染病防治研究及教育中心等校內教研工作。自2018年8月起，擔任地理環境資源學系的系主任。在2006年在台大生物環境系統工程系取得博士學位後，曾任職於中央研究院人文社會科學研究中心博士後研究員（2006-2007）、台灣大學公共衛生學院的專案助理教授（2008-2009）、政治大學歷史學系的兼任助理教授（2008-2009）等教研工作。"
+             data-en="Dr. Tzai-Hung Wen has been a faculty member of the Department of Geography at National Taiwan University since August 2009. He also holds affiliated positions with several university research and teaching units, including the Population and Gender Studies Center, the Global Change Research Center of the College of Science, the Master’s Program in Statistics, and the Center for Infectious Disease Research and Education. Since August 2018, he has served as Chair of the Department of Geography.After receiving his Ph.D. from the Department of Bioenvironmental Systems Engineering at National Taiwan University in 2006, Dr. Wen served as a postdoctoral fellow at the Research Center for Humanities and Social Sciences, Academia Sinica (2006–2007), a project assistant professor at the College of Public Health, National Taiwan University (2008–2009), and an adjunct assistant professor in the Department of History at National Chengchi University (2008–2009).">
+            溫在弘博士於2009年8月起任職於國立台灣大學地理環境資源學系，兼任台大人口與性別研究中心、理學院全球變遷研究中心、統計碩士學位學程、傳染病防治研究及教育中心等校內教研工作。自2018年8月起，擔任地理環境資源學系的系主任。在2006年在台大生物環境系統工程系取得博士學位後，曾任職於中央研究院人文社會科學研究中心博士後研究員（2006-2007）、台灣大學公共衛生學院的專案助理教授（2008-2009）、政治大學歷史學系的兼任助理教授（2008-2009）等教研工作。
+          </p>
+          <p style="font-size:16px;color:var(--wen-text-sub);line-height:1.9;margin:0;"
+             data-zh="研究興趣是在於理解都市環境的地理過程與現象，包括傳染流行病的群聚與擴散、醫療資源的空間配置、都市路網結構與交通壅塞等。對於地理學術社群的服務工作，曾擔任「中國地理學會會刊」主編、「人口學刊」責任編輯等，並參與大學入學考試中心地理科的試題研發、地理奧林匹亞競賽委員會等，目前在科技部的「區域研究與地理學門」、「空間資訊學門」等擔任複審委員。在國際學術社群的服務方面，擔任國際學術期刊 PLOS ONE 的學術主編、BMC Public Health 的副主編，亦參與許多國際學術期刊的同儕審查工作。"
+             data-en="His research interests focus on understanding the geographical processes and phenomena of urban environments, including the clustering and diffusion of infectious diseases, the spatial allocation of healthcare resources, urban road network structures, and traffic congestion.In terms of service to the geographical academic community, Dr. Wen has served as Editor-in-Chief of the *Bulletin of the Geographical Society of China* and Executive Editor of the *Journal of Population Studies*. He has also participated in the development of geography examination questions for the College Entrance Examination Center and served on the committee of the Geography Olympiad. He currently serves as a review committee member for the “Regional Studies and Geography” and “Geographic Information Science” disciplines under the Ministry of Science and Technology.In the international academic community, Dr. Wen serves as an Academic Editor for *PLOS ONE* and an Associate Editor for *BMC Public Health*. He has also contributed as a peer reviewer for numerous international academic journals.">
+            研究興趣是在於理解都市環境的地理過程與現象，包括傳染流行病的群聚與擴散、醫療資源的空間配置、都市路網結構與交通壅塞等。對於地理學術社群的服務工作，曾擔任「中國地理學會會刊」主編、「人口學刊」責任編輯等，並參與大學入學考試中心地理科的試題研發、地理奧林匹亞競賽委員會等，目前在科技部的「區域研究與地理學門」、「空間資訊學門」等擔任複審委員。在國際學術社群的服務方面，擔任國際學術期刊 PLOS ONE 的學術主編、BMC Public Health 的副主編，亦參與許多國際學術期刊的同儕審查工作。
+          </p>
+        </div>
+
+        <div style="margin-bottom:40px;">
+          <div class="row g-4">
+            <!-- 學歷 -->
+            <div class="col-md-6" style="display:flex;flex-direction:column;">
+              <h4 style="font-family:var(--font-h);font-weight:700;font-size:1.1rem;color:var(--wen-text);margin-bottom:16px;"
+                   data-zh="學歷" data-en="Education">學歷</h4>
+              <div class="wen-card" style="padding:18px 22px;flex-direction:column;display:flex;align-items:start;gap:18px;flex:1;">
+                <div style="width:56px;height:56px;background:var(--wen-teal-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--wen-teal);font-size:24px;flex-shrink:0;"><i class="bi bi-mortarboard"></i></div>
+                <div>
+                  <div style="font-size:16px;font-weight:700;color:var(--wen-text);" data-zh="博士 — 生物環境系統工程學系" data-en="Ph.D. — Bioenvironmental Systems Engineering">博士 — 生物環境系統工程學系</div>
+                  <div style="font-size:14px;color:var(--wen-text-muted);" data-zh="國立臺灣大學 · 2006" data-en="National Taiwan University · 2006">國立臺灣大學 · 2006</div>
+                </div>
+                <div>
+                  <div style="font-size:16px;font-weight:700;color:var(--wen-text);" data-zh="碩士 — 農業工程學系" data-en="M.S. — Agricultural Engineering">碩士 — 農業工程學系</div>
+                  <div style="font-size:14px;color:var(--wen-text-muted);" data-zh="國立臺灣大學 · 1998" data-en="National Taiwan University · 1998">國立臺灣大學 · 1998</div>
+                </div>
+                <div>
+                  <div style="font-size:16px;font-weight:700;color:var(--wen-text);" data-zh="學士 — 農業工程學系" data-en="B.S. — Agricultural Engineering">學士 — 農業工程學系</div>
+                  <div style="font-size:14px;color:var(--wen-text-muted);" data-zh="國立臺灣大學 · 1996" data-en="National Taiwan University · 1996">國立臺灣大學 · 1996</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 經歷 -->
+            <div class="col-md-6" style="display:flex;flex-direction:column;">
+              <h4 style="font-family:var(--font-h);font-weight:700;font-size:1.1rem;color:var(--wen-text);margin-bottom:16px;"
+                   data-zh="經歷" data-en="Experience">經歷</h4>
+              <div class="wen-card" style="padding:22px 24px;flex:1;">
+                <div class="cv-timeline">
+                  <div class="cv-tl-item is-current">
+                    <div class="cv-tl-date" data-zh="2017/08 – 現在" data-en="2017/08 – Present">2017/08 – 現在</div>
+                    <div class="cv-tl-role" data-zh="教授，國立臺灣大學地理環境資源學系" data-en="Professor, Dept. of Geography, National Taiwan University">教授，國立臺灣大學地理環境資源學系</div>
+                  </div>
+                  <div class="cv-tl-item">
+                    <div class="cv-tl-date">2013/08 – 2017/07</div>
+                    <div class="cv-tl-role" data-zh="副教授，國立臺灣大學地理環境資源學系" data-en="Associate Professor, Dept. of Geography, National Taiwan University">副教授，國立臺灣大學地理環境資源學系</div>
+                  </div>
+                  <div class="cv-tl-item">
+                    <div class="cv-tl-date">2009/08 – 2013/07</div>
+                    <div class="cv-tl-role" data-zh="助理教授，國立臺灣大學地理環境資源學系" data-en="Assistant Professor, Dept. of Geography, National Taiwan University">助理教授，國立臺灣大學地理環境資源學系</div>
+                  </div>
+                  <div class="cv-tl-item">
+                    <div class="cv-tl-date">2008/02 – 2009/07</div>
+                    <div class="cv-tl-role" data-zh="專案助理教授，國立臺灣大學流行病學研究所" data-en="Project Assistant Professor, Institute of Epidemiology, National Taiwan University">專案助理教授，國立臺灣大學流行病學研究所</div>
+                  </div>
+                  <div class="cv-tl-item">
+                    <div class="cv-tl-date">2006/09 – 2008/02</div>
+                    <div class="cv-tl-role" data-zh="博士後研究員，中央研究院人文社會科學研究中心" data-en="Postdoctoral Fellow, RCHSS, Academia Sinica">博士後研究員，中央研究院人文社會科學研究中心</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-family:var(--font-h);font-weight:700;font-size:1.1rem;color:var(--wen-text);margin-bottom:16px;"
+               data-zh="學術服務與榮譽" data-en="Academic Service &amp; Honors">學術服務與榮譽</h4>
+
+          <!-- 榮譽 -->
+          <details class="cv-acc" name="cv-service" open>
+            <summary>
+              <i class="bi bi-trophy cv-acc-icon"></i>
+              <span data-zh="榮譽" data-en="Honors &amp; Awards">榮譽</span>
+              <span class="cv-count">13</span>
+              <i class="bi bi-chevron-down cv-chev"></i>
+            </summary>
+            <div class="cv-acc-body">
+              <div class="cv-row"><div class="cv-when">2024</div><div class="cv-what" data-zh="國立臺灣大學傑出學者獎勵" data-en="NTU Distinguished Scholar Fellowship">國立臺灣大學傑出學者獎勵</div></div>
+              <div class="cv-row"><div class="cv-when">2023</div><div class="cv-what" data-zh="國立臺灣大學傑出教學獎（前 1%）" data-en="NTU Distinguished Teaching Award (Top 1%)">國立臺灣大學傑出教學獎（前 1%）</div></div>
+              <div class="cv-row"><div class="cv-when">2021</div><div class="cv-what" data-zh="國立臺灣大學獲准免接受教師評鑑" data-en="NTU Exemption from Faculty Evaluation">國立臺灣大學獲准免接受教師評鑑</div></div>
+              <div class="cv-row"><div class="cv-when">2019</div><div class="cv-what" data-zh="國立臺灣大學資深優良教師獎勵（服務滿 10 年）" data-en="NTU Excellent Senior Teacher Award (10 years)">國立臺灣大學資深優良教師獎勵（服務滿 10 年）</div></div>
+              <div class="cv-row"><div class="cv-when">2018</div><div class="cv-what" data-zh="國立臺灣大學傑出教學獎（前 1%）" data-en="NTU Distinguished Teaching Award (Top 1%)">國立臺灣大學傑出教學獎（前 1%）</div></div>
+              <div class="cv-row"><div class="cv-when">2011、2013、2016</div><div class="cv-what" data-zh="國立臺灣大學教學優良獎（前 10%）" data-en="NTU Excellence in Teaching Award (Top 10%)">國立臺灣大學教學優良獎（前 10%）</div></div>
+              <div class="cv-row"><div class="cv-when">2016 – 2025</div><div class="cv-what" data-zh="國立臺灣大學教師學術研究獎勵（彈性薪資）" data-en="NTU Faculty Academic Merit Pay">國立臺灣大學教師學術研究獎勵（彈性薪資）</div></div>
+              <div class="cv-row"><div class="cv-when">2019 – 2021</div><div class="cv-what" data-zh="科技部薛克頓計畫獎助" data-en="NSTC Shackleton Program Grant">科技部薛克頓計畫獎助</div></div>
+              <div class="cv-row"><div class="cv-when">2017</div><div class="cv-what" data-zh="科技部未來科技展—突破科技獎" data-en="NSTC Future Tech Expo — Breakthrough Technology Award">科技部未來科技展—突破科技獎</div></div>
+              <div class="cv-row"><div class="cv-when">2015</div><div class="cv-what" data-zh="科技部吳大猷先生紀念獎" data-en="NSTC Ta-You Wu Memorial Award">科技部吳大猷先生紀念獎</div></div>
+              <div class="cv-row"><div class="cv-when">2014 – 2016</div><div class="cv-what" data-zh="科技部優秀年輕學者研究計畫" data-en="NSTC Excellent Young Scholar Grant">科技部優秀年輕學者研究計畫</div></div>
+              <div class="cv-row"><div class="cv-when">2010 – 2024</div><div class="cv-what" data-zh="國立臺灣大學研究獎勵（期刊論文、專書篇章、計畫管理費）" data-en="NTU Research Awards (journal papers, book chapters, grant overhead)">國立臺灣大學研究獎勵（期刊論文、專書篇章、計畫管理費）</div></div>
+              <div class="cv-row"><div class="cv-when">2006</div><div class="cv-what" data-zh="斐陶斐榮譽學會榮譽會員" data-en="Honor Member, Phi Tau Phi Scholastic Honor Society">斐陶斐榮譽學會榮譽會員</div></div>
+            </div>
+          </details>
+
+          <!-- 合聘教師 -->
+          <details class="cv-acc" name="cv-service">
+            <summary>
+              <i class="bi bi-person-badge cv-acc-icon"></i>
+              <span data-zh="合聘教師" data-en="Joint Appointments">合聘教師</span>
+              <span class="cv-count">7</span>
+              <i class="bi bi-chevron-down cv-chev"></i>
+            </summary>
+            <div class="cv-acc-body">
+              <div class="cv-row"><div class="cv-when" data-zh="2024/08 – 現在" data-en="2024/08 – Present">2024/08 – 現在</div><div class="cv-what" data-zh="國立臺灣大學公共事務研究所" data-en="Graduate Institute of Public Affairs, NTU">國立臺灣大學公共事務研究所</div></div>
+              <div class="cv-row"><div class="cv-when" data-zh="2023/06 – 現在" data-en="2023/06 – Present">2023/06 – 現在</div><div class="cv-what" data-zh="泰國瑪希隆大學流行病學系" data-en="Dept. of Epidemiology, Mahidol University (Thailand)">泰國瑪希隆大學流行病學系</div></div>
+              <div class="cv-row"><div class="cv-when" data-zh="2022/02 – 現在" data-en="2022/02 – Present">2022/02 – 現在</div><div class="cv-what" data-zh="國立臺灣大學流行病學與預防醫學研究所" data-en="Institute of Epidemiology and Preventive Medicine, NTU">國立臺灣大學流行病學與預防醫學研究所</div></div>
+              <div class="cv-row"><div class="cv-when" data-zh="2021/08 – 現在" data-en="2021/08 – Present">2021/08 – 現在</div><div class="cv-what" data-zh="國立臺灣大學地球系統科學國際研究生學程（TIGP-ESS）" data-en="TIGP in Earth System Science, NTU">國立臺灣大學地球系統科學國際研究生學程（TIGP-ESS）</div></div>
+              <div class="cv-row"><div class="cv-when" data-zh="2013/02 – 現在" data-en="2013/02 – Present">2013/02 – 現在</div><div class="cv-what" data-zh="國立臺灣大學統計碩士學位學程" data-en="Master's Program in Statistics, NTU">國立臺灣大學統計碩士學位學程</div></div>
+              <div class="cv-row"><div class="cv-when" data-zh="2009/08 – 現在" data-en="2009/08 – Present">2009/08 – 現在</div><div class="cv-what" data-zh="衛福部—臺大傳染病防治研究及教育中心" data-en="MOHW–NTU Infectious Disease Research and Education Center">衛福部—臺大傳染病防治研究及教育中心</div></div>
+              <div class="cv-row"><div class="cv-when">2008/02 – 2009/07</div><div class="cv-what" data-zh="國立政治大學歷史學系（兼任）" data-en="Dept. of History, NCCU (Adjunct)">國立政治大學歷史學系（兼任）</div></div>
+            </div>
+          </details>
+
+          <!-- 學校行政 -->
+          <details class="cv-acc" name="cv-service">
+            <summary>
+              <i class="bi bi-building cv-acc-icon"></i>
+              <span data-zh="學校行政" data-en="University Administration">學校行政</span>
+              <span class="cv-count">11</span>
+              <i class="bi bi-chevron-down cv-chev"></i>
+            </summary>
+            <div class="cv-acc-body">
+              <div class="cv-row"><div class="cv-when" data-zh="2025/08 – 現在" data-en="2025/08 – Present">2025/08 – 現在</div><div class="cv-what" data-zh="主任，國立臺灣大學人口與性別研究中心" data-en="Director, NTU Center for Population and Gender Studies">主任，國立臺灣大學人口與性別研究中心</div></div>
+              <div class="cv-row"><div class="cv-when" data-zh="2024/06 – 現在" data-en="2024/06 – Present">2024/06 – 現在</div><div class="cv-what" data-zh="分部主任，國立臺灣大學氣象與氣候災害研究中心" data-en="Division Director, NTU Center for Weather and Climate Disaster Research">分部主任，國立臺灣大學氣象與氣候災害研究中心</div></div>
+              <div class="cv-row"><div class="cv-when">2023/08 – 2025/07</div><div class="cv-what" data-zh="分部主任，國立臺灣大學人口與性別研究中心" data-en="Division Director, NTU Center for Population and Gender Studies">分部主任，國立臺灣大學人口與性別研究中心</div></div>
+              <div class="cv-row"><div class="cv-when" data-zh="2021/01 – 現在" data-en="2021/01 – Present">2021/01 – 現在</div><div class="cv-what" data-zh="主任，國立臺灣大學空間資訊研究中心" data-en="Director, NTU Spatial Information Research Center">主任，國立臺灣大學空間資訊研究中心</div></div>
+              <div class="cv-row"><div class="cv-when">2018/08 – 2021/07</div><div class="cv-what" data-zh="系主任，國立臺灣大學地理環境資源學系" data-en="Chair, NTU Dept. of Geography">系主任，國立臺灣大學地理環境資源學系</div></div>
+              <div class="cv-row"><div class="cv-when">2014/01 – 2017/07</div><div class="cv-what" data-zh="分部主任，國立臺灣大學全球變遷研究中心" data-en="Division Director, NTU Global Change Research Center">分部主任，國立臺灣大學全球變遷研究中心</div></div>
+              <div class="cv-row"><div class="cv-when">2010/08 – 2018/07</div><div class="cv-what" data-zh="分部主任，國立臺灣大學人口與性別研究中心" data-en="Division Director, NTU Center for Population and Gender Studies">分部主任，國立臺灣大學人口與性別研究中心</div></div>
+              <div class="cv-row"><div class="cv-when">2019 – 2021</div><div class="cv-what" data-zh="委員，國立臺灣大學校園規劃委員會" data-en="Member, NTU Campus Planning Committee">委員，國立臺灣大學校園規劃委員會</div></div>
+              <div class="cv-row"><div class="cv-when">2015–2016、2020–2021</div><div class="cv-what" data-zh="校務會議代表" data-en="Representative, NTU University Affairs Council">校務會議代表</div></div>
+              <div class="cv-row"><div class="cv-when">2014、2016、2018–2021</div><div class="cv-what" data-zh="院務會議代表，國立臺灣大學理學院" data-en="Representative, College Affairs Council, NTU College of Science">院務會議代表，國立臺灣大學理學院</div></div>
+              <div class="cv-row"><div class="cv-when" data-zh="2018 – 現在" data-en="2018 – Present">2018 – 現在</div><div class="cv-what" data-zh="院教師評審委員會委員，國立臺灣大學理學院" data-en="College Faculty Evaluation Committee, NTU College of Science">院教師評審委員會委員，國立臺灣大學理學院</div></div>
+            </div>
+          </details>
+
+          <!-- 學術社群參與 -->
+          <details class="cv-acc" name="cv-service">
+            <summary>
+              <i class="bi bi-people cv-acc-icon"></i>
+              <span data-zh="學術社群參與" data-en="Academic Community">學術社群參與</span>
+              <span class="cv-count">12</span>
+              <i class="bi bi-chevron-down cv-chev"></i>
+            </summary>
+            <div class="cv-acc-body">
+              <div class="cv-row"><div class="cv-when">2025/03 – 2026/12</div><div class="cv-what" data-zh="臺北市政府市政顧問" data-en="Municipal Consultant, Taipei City Government">臺北市政府市政顧問</div></div>
+              <div class="cv-row"><div class="cv-when">2020/01 – 2023/12</div><div class="cv-what" data-zh="理事，中華民國測量及製圖學會" data-en="Council Member, Chinese Federation of Surveying &amp; Mapping">理事，中華民國測量及製圖學會</div></div>
+              <div class="cv-row"><div class="cv-when">2019/11 – 2023/11</div><div class="cv-what" data-zh="理事長，中華民國地圖學會" data-en="Chairperson, Chinese Cartographic Association">理事長，中華民國地圖學會</div></div>
+              <div class="cv-row"><div class="cv-when">2019/08 – 2022/08</div><div class="cv-what" data-zh="國際地理聯合會中華臺北國家委員會委員" data-en="National Committee (Chinese Taipei), International Geographical Union">國際地理聯合會中華臺北國家委員會委員</div></div>
+              <div class="cv-row"><div class="cv-when" data-zh="2018/09 – 現在" data-en="2018/09 – Present">2018/09 – 現在</div><div class="cv-what" data-zh="理事，臺灣地理資訊學會（TGIS）" data-en="Council Member, Taiwan Geographic Information Society">理事，臺灣地理資訊學會（TGIS）</div></div>
+              <div class="cv-row"><div class="cv-when">2018/08 – 2020/07</div><div class="cv-what" data-zh="委員，環保署開放政府資料諮詢小組" data-en="Open Government Data Consultation Committee, Taiwan EPA">委員，環保署開放政府資料諮詢小組</div></div>
+              <div class="cv-row"><div class="cv-when">2018/01 – 2019/12</div><div class="cv-what" data-zh="科技部「區域科學與地理學門」複審委員" data-en="MOST Grant Review Panel, Regional Science &amp; Geography">科技部「區域科學與地理學門」複審委員</div></div>
+              <div class="cv-row"><div class="cv-when">2018/01 – 2020/12</div><div class="cv-what" data-zh="科技部「空間資訊技術」複審委員" data-en="MOST Grant Review Panel, Geospatial Information Technology">科技部「空間資訊技術」複審委員</div></div>
+              <div class="cv-row"><div class="cv-when">2017/11 – 2019/10</div><div class="cv-what" data-zh="秘書長，中華民國地圖學會" data-en="Secretary-General, Chinese Cartographic Association">秘書長，中華民國地圖學會</div></div>
+              <div class="cv-row"><div class="cv-when">2017/08 – 2023/07</div><div class="cv-what" data-zh="理事／監事，台灣人口學會" data-en="Council Member / Supervisor, Population Association of Taiwan">理事／監事，台灣人口學會</div></div>
+              <div class="cv-row"><div class="cv-when">2017/08 – 2023/07</div><div class="cv-what" data-zh="理事，中國地理學會（2019–2022 理事長）" data-en="Council Member (Chairperson 2019–2022), Geographical Society of China">理事，中國地理學會（2019–2022 理事長）</div></div>
+              <div class="cv-row"><div class="cv-when">2016/03 – 2019/12</div><div class="cv-what" data-zh="國家蚊媒傳染病防治研究中心" data-en="National Mosquito-Borne Diseases Control Research Center">國家蚊媒傳染病防治研究中心</div></div>
+            </div>
+          </details>
+
+          <!-- 學術期刊編輯 -->
+          <details class="cv-acc" name="cv-service">
+            <summary>
+              <i class="bi bi-journal-text cv-acc-icon"></i>
+              <span data-zh="學術期刊編輯" data-en="Journal Editorial Boards">學術期刊編輯</span>
+              <span class="cv-count">7</span>
+              <i class="bi bi-chevron-down cv-chev"></i>
+            </summary>
+            <div class="cv-acc-body">
+              <div class="cv-row"><div class="cv-when">2022/01 – 2023/01</div><div class="cv-what" data-zh="客座編輯，《Tropical Medicine and Infectious Disease》(SCI)" data-en="Guest Editor, Tropical Medicine and Infectious Disease (SCI)">客座編輯，《Tropical Medicine and Infectious Disease》(SCI)</div></div>
+              <div class="cv-row"><div class="cv-when">2021/06 – 2021/12</div><div class="cv-what" data-zh="客座編輯，《地理數位生活》" data-en="Guest Editor, GeoDigital Life">客座編輯，《地理數位生活》</div></div>
+              <div class="cv-row"><div class="cv-when">2020/02 – 2023/07</div><div class="cv-what" data-zh="主編，《人口學刊》(TSSCI)" data-en="Editor-in-Chief, Journal of Population Studies (TSSCI)">主編，《人口學刊》(TSSCI)</div></div>
+              <div class="cv-row"><div class="cv-when" data-zh="2018/03 – 現在" data-en="2018/03 – Present">2018/03 – 現在</div><div class="cv-what" data-zh="編輯委員（生物統計與方法），《BMC Public Health》(SCI)" data-en="Editorial Board (Biostatistics &amp; Methods), BMC Public Health (SCI)">編輯委員（生物統計與方法），《BMC Public Health》(SCI)</div></div>
+              <div class="cv-row"><div class="cv-when">2015/09 – 2018/07</div><div class="cv-what" data-zh="編輯委員，《地理學報》(TSSCI)" data-en="Editorial Board, Journal of Geographical Science (TSSCI)">編輯委員，《地理學報》(TSSCI)</div></div>
+              <div class="cv-row"><div class="cv-when">2013/08 – 2017/07</div><div class="cv-what" data-zh="主編，《中國地理學會會刊》" data-en="Editor-in-Chief, Bulletin of the Geographical Society of China">主編，《中國地理學會會刊》</div></div>
+              <div class="cv-row"><div class="cv-when">2011/08 – 2019/07</div><div class="cv-what" data-zh="編輯委員／副主編，《人口學刊》(TSSCI)" data-en="Editorial Board / Deputy Editor, Journal of Population Studies (TSSCI)">編輯委員／副主編，《人口學刊》(TSSCI)</div></div>
+            </div>
+          </details>
+
+          <!-- 高中地理教育與推廣 -->
+          <details class="cv-acc" name="cv-service">
+            <summary>
+              <i class="bi bi-mortarboard cv-acc-icon"></i>
+              <span data-zh="高中地理教育與推廣" data-en="High-School Geography Education &amp; Outreach">高中地理教育與推廣</span>
+              <span class="cv-count">3</span>
+              <i class="bi bi-chevron-down cv-chev"></i>
+            </summary>
+            <div class="cv-acc-body">
+              <div class="cv-row"><div class="cv-when" data-zh="2013/01 – 現在" data-en="2013/01 – Present">2013/01 – 現在</div><div class="cv-what" data-zh="大學入學考試中心地理科" data-en="College Entrance Examination Center (Geography)">大學入學考試中心地理科</div></div>
+              <div class="cv-row"><div class="cv-when" data-zh="2012/01 – 現在" data-en="2012/01 – Present">2012/01 – 現在</div><div class="cv-what" data-zh="高中地理教科書編輯委員" data-en="Editorial Board, High-School Geography Textbooks">高中地理教科書編輯委員</div></div>
+              <div class="cv-row"><div class="cv-when">2011/10 – 2018/09</div><div class="cv-what" data-zh="地理奧林匹亞競賽委員會，中國地理學會" data-en="Geography Olympiad Committee, Geographical Society of China">地理奧林匹亞競賽委員會，中國地理學會</div></div>
+            </div>
+          </details>
+
+          <!-- 國際學術參與 -->
+          <details class="cv-acc" name="cv-service">
+            <summary>
+              <i class="bi bi-globe2 cv-acc-icon"></i>
+              <span data-zh="國際學術參與" data-en="International Engagement">國際學術參與</span>
+              <span class="cv-count">8</span>
+              <i class="bi bi-chevron-down cv-chev"></i>
+            </summary>
+            <div class="cv-acc-body">
+              <div class="cv-row"><div class="cv-when">2019 – 2022</div><div class="cv-what" data-zh="國家委員會委員，國際地理聯合會（IGU）" data-en="National Committee, International Geographical Union (IGU)">國家委員會委員，國際地理聯合會（IGU）</div></div>
+              <div class="cv-row"><div class="cv-when">2019</div><div class="cv-what" data-zh="議程主席，國際地圖學會議（ICC）" data-en="Session Chair, International Cartographic Conference (ICC)">議程主席，國際地圖學會議（ICC）</div></div>
+              <div class="cv-row"><div class="cv-when" data-zh="2017 – 現在" data-en="2017 – Present">2017 – 現在</div><div class="cv-what" data-zh="外審委員，香港研究資助局（RGC）" data-en="External Reviewer, Research Grants Council (RGC), Hong Kong">外審委員，香港研究資助局（RGC）</div></div>
+              <div class="cv-row"><div class="cv-when">2017</div><div class="cv-what" data-zh="委員，亞洲區域科學研討會（ASRC）" data-en="Committee Member, Asian Seminar in Regional Science">委員，亞洲區域科學研討會（ASRC）</div></div>
+              <div class="cv-row"><div class="cv-when">2016 – 2019</div><div class="cv-what" data-zh="合作研究，東京大學空間資訊科學研究中心" data-en="Joint Research, Center for Spatial Information Science, University of Tokyo">合作研究，東京大學空間資訊科學研究中心</div></div>
+              <div class="cv-row"><div class="cv-when">2015</div><div class="cv-what" data-zh="議程審查委員，冬季模擬會議（WSC）" data-en="Program Committee, Winter Simulation Conference (WSC)">議程審查委員，冬季模擬會議（WSC）</div></div>
+              <div class="cv-row"><div class="cv-when">2013 – 2017</div><div class="cv-what" data-zh="議程審查委員，PNC 太平洋鄰里協會年會" data-en="Program Committee, PNC Annual Conference">議程審查委員，PNC 太平洋鄰里協會年會</div></div>
+              <div class="cv-row"><div class="cv-when">2013</div><div class="cv-what" data-zh="外審委員，荷蘭科學研究組織（NWO）" data-en="External Reviewer, Netherlands Organisation for Scientific Research (NWO)">外審委員，荷蘭科學研究組織（NWO）</div></div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

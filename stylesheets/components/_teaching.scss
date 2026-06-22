@@ -1,0 +1,140 @@
+// ============================== TUTORIAL CARD ==============================
+.tutorial-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: $white;
+  border: 1px solid $wen-border;
+  border-radius: $border-radius-lg;
+  padding: 20px;
+  text-decoration: none;
+  transition: all $t;
+  height: 100%;
+
+  &:hover {
+    border-color: $wen-teal;
+    box-shadow: $shadow-card;
+    transform: translateY(-2px);
+
+    .tutorial-arrow {
+      color: $wen-teal;
+      transform: translateX(4px);
+    }
+  }
+}
+
+.tutorial-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: $border-radius-lg;
+  background: $wen-cream;
+  color: $wen-teal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.tutorial-title {
+  font-family: $font-h;
+  font-weight: 700;
+  font-size: 15px;
+  color: $wen-text;
+  margin-bottom: 4px;
+}
+
+.tutorial-desc {
+  font-size: 13px;
+  color: $wen-text-sub;
+  line-height: 1.5;
+}
+
+.tutorial-arrow {
+  margin-left: auto;
+  font-size: 18px;
+  color: $wen-text-muted;
+  transition: all $t;
+}
+
+// ============================== COURSE LIST ==============================
+.course-row {
+  padding: 16px 0;
+  border-bottom: 1px solid $wen-border;
+
+  &:last-child { border-bottom: none; }
+}
+
+.course-name {
+  font-family: $font-h;
+  font-weight: 600;
+  font-size: 15px;
+  color: $wen-text;
+  margin-bottom: 6px;
+}
+
+.course-semesters {
+  font-size: 13px;
+  color: $wen-text-sub;
+  line-height: 1.6;
+}
+
+// ============================== COURSE CARD ==============================
+.course-card {
+  background: $white;
+  border: 1px solid $wen-border;
+  border-left: 3px solid $wen-teal;
+  border-radius: $border-radius-lg * .8;
+  padding: 18px 20px;
+  height: 100%;
+  transition: all $t;
+
+  &:hover {
+    box-shadow: $shadow-card;
+    transform: translateY(-2px);
+  }
+}
+
+.course-tag {
+  font-family: $font-h;
+  font-size: 11px;
+  font-weight: 700;
+  color: $wen-teal;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 6px;
+}
+
+.course-title {
+  font-family: $font-h;
+  font-weight: 700;
+  font-size: 17px;
+  color: $wen-text;
+  margin-bottom: 6px;
+}
+
+.course-desc {
+  font-size: 13.5px;
+  color: $wen-text-sub;
+  line-height: 1.65;
+}
+
+// ============================== TOPIC TAG ==============================
+.topic-tag {
+  background: $wen-cream;
+  border: 1px solid $wen-border;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-family: $font-h;
+  font-weight: 600;
+  font-size: 14px;
+  color: $wen-text;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  i {
+    color: $wen-teal;
+    font-size: 17px;
+  }
+}

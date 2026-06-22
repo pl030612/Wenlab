@@ -1,0 +1,84 @@
+// ============================== PUB ROW ==============================
+.pub-row {
+  padding: 14px 0;
+  border-bottom: 1px solid $wen-border;
+
+  &:last-child { border-bottom: none; }
+  &.is-hidden { display: none; }
+}
+
+.pub-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: $wen-text;
+  line-height: 1.55;
+  font-family: $font-h;
+}
+
+.pub-meta {
+  font-size: 12px;
+  color: $wen-text-muted;
+  margin-top: 3px;
+}
+
+.pub-year-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: $wen-teal;
+  font-family: $font-h;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+// ============================== PUB SEARCH ==============================
+.pub-search-bar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: $white;
+  border: 1px solid $wen-border;
+  border-radius: $border-radius-lg * .8;
+  padding: 8px 14px;
+  margin-bottom: 24px;
+  box-shadow: $shadow-subtle;
+
+  input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-family: $font-b;
+    color: $wen-text;
+    background: transparent;
+  }
+
+  i {
+    color: $wen-text-muted;
+    font-size: 17px;
+  }
+}
+
+.pub-filter-btn {
+  background: $white;
+  border: 1px solid $wen-border;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-family: $font-h;
+  font-size: 13px;
+  font-weight: 600;
+  color: $wen-text-sub;
+  cursor: pointer;
+  transition: all $t;
+
+  &:hover {
+    border-color: $wen-teal;
+    color: $wen-teal;
+  }
+
+  &.active {
+    background: $wen-navy;
+    color: $white;
+    border-color: $wen-navy;
+  }
+}

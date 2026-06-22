@@ -1,0 +1,53 @@
+.stepbar{
+    //原則1:避免過多層級
+    //原則2:盡可能使用變數
+    $size: 1.5rem;
+
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    &::after{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background-color: $gray-300;
+        z-index: -1;
+    }
+}
+
+//level1外層
+.stepbar-item{
+    background-color: $primary;
+    width: $size;
+    height: $size;
+    border-radius: $size;
+    border: 1px solid $primary;
+    
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    &.active{
+        .stepbar-icon{
+            background-color: $primary;
+        }
+    }
+}
+
+//level2內層
+.stepbar-inner{
+
+}
+
+.stepbar-item.active{
+    .stepbar-icon{
+        background-color: $primary;
+    }
+}

@@ -1,0 +1,129 @@
+// ============================== MEDIA PAGE ==============================
+.media-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.media-item {
+  background: $white;
+  border: 1px solid $wen-border;
+  border-left: 4px solid $wen-teal;
+  border-radius: $border-radius-lg * .8;
+  padding: 20px 24px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  transition: all $t;
+
+  &:hover {
+    box-shadow: $shadow-card;
+    transform: translateX(4px);
+  }
+
+  // 手機改直向堆疊：年份在上、內容全寬
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 20px;
+  }
+}
+
+.media-year {
+  font-family: $font-h;
+  font-weight: 800;
+  font-size: 20px;
+  color: $wen-teal;
+  min-width: 60px;
+  padding-top: 2px;
+
+  @include media-breakpoint-down(md) {
+    min-width: 0;
+    padding-top: 0;
+  }
+}
+
+.media-content { flex: 1; }
+
+.media-title {
+  font-family: $font-h;
+  font-weight: 700;
+  font-size: 17px;
+  color: $wen-text;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.media-meta {
+  font-size: 13px;
+  color: $wen-text-muted;
+  margin-bottom: 10px;
+}
+
+.media-link {
+  font-family: $font-h;
+  font-weight: 600;
+  font-size: 14px;
+  color: $wen-teal;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all $t;
+
+  &:hover {
+    color: $wen-blue;
+    gap: 8px;
+  }
+}
+
+// ============================== TALKS ==============================
+.talk-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.talk-year-header {
+  font-family: $font-h;
+  font-weight: 800;
+  font-size: 22px;
+  color: $wen-navy;
+  margin-top: 24px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid $wen-teal;
+}
+
+.talk-item {
+  background: $white;
+  border: 1px solid $wen-border;
+  border-radius: $border-radius-lg * .8;
+  padding: 16px 20px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  transition: all $t;
+
+  &:hover { background: $wen-cream; }
+}
+
+.talk-date {
+  font-family: $font-h;
+  font-weight: 700;
+  font-size: 14px;
+  color: $wen-teal;
+  min-width: 50px;
+}
+
+.talk-title {
+  font-family: $font-h;
+  font-weight: 600;
+  font-size: 15px;
+  color: $wen-text;
+  margin-bottom: 4px;
+}
+
+.talk-venue {
+  font-size: 13px;
+  color: $wen-text-sub;
+}

@@ -1,0 +1,7 @@
+.btn-custom-hex {
+    @include button-variant(#ff5733, #ff5733);
+}
+
+.btn-outline-hex {
+    @include button-outline-variant(#ff5733);
+}

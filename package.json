@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "scss": "sass stylesheets/all-5.3.scss stylesheets/all-5.3.css --watch",
+    "build:css": "sass stylesheets/all-5.3.scss stylesheets/all-5.3.css --style=compressed --no-source-map"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  },
+  "devDependencies": {
+    "sass": "^1.80.0"
+  }
+}

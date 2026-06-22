@@ -1,0 +1,40 @@
+// ============================== FOOTER ==============================
+.wen-footer {
+  background: $wen-navy;
+  color: rgba($white, .65);
+  padding: 56px 0 28px;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, transparent, #5F9598, transparent) 1;
+
+  h6 {
+    font-family: $font-h;
+    color: $white;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 14px;
+  }
+
+  a {
+    color: rgba($white, .6);
+    font-size: 14px;
+    display: block;
+    margin-bottom: 7px;
+    transition: color .2s, transform .2s;
+
+    &:hover { color: #7AACAF !important; transform: translateX(2px); }
+  }
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba($white, .1);
+  margin-top: 36px;
+  padding-top: 20px;
+  font-size: 13px;
+}
+
+.footer-social{width:34px;height:34px;border-radius:50%;display:inline-flex;
+  align-items:center;justify-content:center;background:rgba(255,255,255,.08);
+  transition:background .2s;}
+.footer-social:hover{background:rgba(95,149,152,.35);}

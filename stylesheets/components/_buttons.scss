@@ -1,0 +1,104 @@
+// ============================== BUTTONS & LINKS ==============================
+.btn-primary-wen {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: $wen-navy;
+  color: $white;
+  border: none;
+  border-radius: $border-radius;
+  padding: 11px 24px;
+  font-family: $font-h;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background $t, box-shadow $t;
+  text-decoration: none;
+
+  &:hover {
+    background: tint-color($wen-navy, 12%);
+    box-shadow: $shadow-hover;
+    color: $white;
+  }
+}
+
+.btn-outline-wen {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: $wen-navy;
+  border: 1.5px solid $wen-navy;
+  border-radius: $border-radius;
+  padding: 10px 24px;
+  font-family: $font-h;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all $t;
+  text-decoration: none;
+
+  &:hover {
+    background: $wen-navy;
+    color: $white;
+  }
+}
+
+.link-teal {
+  font-family: $font-h;
+  font-size: 14px;
+  font-weight: 600;
+  color: $wen-teal;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color $t;
+
+  &:hover { color: $wen-navy; }
+}
+
+.archive-link {
+  &:hover {
+    color: $wen-teal !important;
+    i { transform: translateX(3px); }
+  }
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all .25s ease;   /* 關鍵：讓變化平滑 */
+  }
+
+  /* 主按鈕（實心 teal） */
+  .hero-btn--primary {
+    background: var(--wen-teal);
+    border: 1px solid transparent;
+  }
+  .hero-btn--primary:hover {
+    transform: translateY(-3px);                      /* 上浮 */
+    box-shadow: 0 8px 20px rgba(0, 180, 180, .35);    /* 發光陰影 */
+    filter: brightness(1.1);                          /* 顏色提亮 */
+  }
+
+  /* 次按鈕（半透明外框） */
+  .hero-btn--ghost {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .hero-btn--ghost:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: var(--wen-teal);
+    transform: translateY(-3px);
+  }
+
+  /* 圖示跟著動，更有層次 */
+  .hero-btn:hover i { transform: translateX(3px); }
+  .hero-btn i { transition: transform .25s ease; }

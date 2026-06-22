@@ -1,0 +1,68 @@
+// ============================== SECTIONS ==============================
+.section-white { background: $white; }
+
+.section-label {
+  font-family: $font-h;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: $wen-teal;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: $font-h;
+  font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+  font-weight: 800;
+  color: $wen-text;
+  margin: 0;
+}
+
+.page-header {
+  background: $wen-header-bg;
+  padding: 56px 24px 40px;
+  border-bottom: 1px solid $wen-border;
+
+  @include media-breakpoint-down(md) {
+    padding: 40px 16px 32px;
+  }
+
+  .section-label {
+    color: rgba($white, .7) !important;
+    font-size: 12px;
+  }
+
+  h1 {
+    color: $white !important;
+    font-size: 1.8rem !important;
+  }
+
+  p { color: rgba($white, .85) !important; }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+.section-py {
+  padding: 64px 24px;
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 48px 16px;
+  }
+}
+
+// HTML 內嵌 white-space:nowrap 的大標題（首頁 hero），窄螢幕允許換行避免溢出
+@include media-breakpoint-down(md) {
+  [style*="white-space:nowrap"] {
+    white-space: normal !important;
+  }
+}

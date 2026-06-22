@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="WenLab Multipage Site - Team" subtitle="Lab alumni table (full names, all years from CSV) + link to the StoryMap" -->
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研究團隊 | WenLab — NTU 地理環境資源學系</title>
+<meta name="description" content="WenLab 歷年畢業校友 (alumni) 名單與學位論文，以及互動式校友研究地圖。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://wenlab501.github.io/team.html">
+<link rel="icon" type="image/jpeg" href="assets/Wenlab_logo.jpg">
+<link href="stylesheets/all-5.3.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  .alumni-table td .alumni-thesis { color: var(--wen-blue); font-weight: 500; }
+  .alumni-table td .alumni-thesis:hover { color: var(--wen-teal); text-decoration: underline; }
+  .alumni-table tbody td:nth-child(4) { line-height: 1.55; }
+
+  /* Interactive alumni map CTA */
+  .alumni-map-cta {
+    position: relative; display: flex; align-items: center; gap: 26px;
+    text-decoration: none; overflow: hidden;
+    background: linear-gradient(135deg, #00121F 0%, #1D546D 100%);
+    border-radius: 16px; padding: 26px 30px; margin-bottom: 24px;
+    box-shadow: var(--shadow-subtle);
+    transition: box-shadow .25s ease, transform .25s ease;
+  }
+  .alumni-map-cta::after {            /* ambient accent glow */
+    content: ''; position: absolute; right: 180px; top: -90px;
+    width: 280px; height: 280px; pointer-events: none;
+    background: radial-gradient(circle, rgba(95,149,152,.30), transparent 70%);
+  }
+  .alumni-map-cta:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+  .alumni-map-cta-body { position: relative; z-index: 1; flex: 1; min-width: 0; }
+  .alumni-map-cta-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px; margin-bottom: 12px;
+    padding: 4px 12px; border-radius: 20px;
+    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22);
+    color: #fff; font-family: var(--font-h); font-weight: 700; font-size: 12px; letter-spacing: .5px;
+  }
+  .alumni-map-cta-title { font-family: var(--font-h); font-weight: 800; font-size: 20px; color: #fff; margin-bottom: 6px; line-height: 1.3; }
+  .alumni-map-cta-sub { font-size: 13.5px; color: rgba(255,255,255,.82); line-height: 1.7; max-width: 430px; margin-bottom: 18px; }
+  .alumni-map-cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 20px; border-radius: 24px;
+    background: #fff; color: #00121F; font-family: var(--font-h); font-weight: 800; font-size: 20px;
+    transition: background .2s ease, box-shadow .2s ease;
+  }
+  .alumni-map-cta-btn i { transition: transform .2s ease; }
+  .alumni-map-cta:hover .alumni-map-cta-btn { background: var(--wen-teal-pale); box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .alumni-map-cta:hover .alumni-map-cta-btn i { transform: translateX(4px); }
+  .alumni-map-cta-art {
+    position: relative; z-index: 1; flex-shrink: 0; align-self: stretch;
+    width: 240px; min-height: 152px; padding: 12px;
+    border-radius: 14px; overflow: hidden;
+    background: linear-gradient(160deg, #ffffff 0%, #E7F0F0 100%);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.4);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .alumni-map-cta-art img { width: 100%; height: 100%; object-fit: contain; transition: transform .3s ease; }
+  .alumni-map-cta:hover .alumni-map-cta-art img { transform: scale(1.05); }
+  @media (max-width: 720px) {
+    .alumni-map-cta { flex-direction: column-reverse; align-items: stretch; gap: 16px; padding: 22px; }
+    .alumni-map-cta-art { width: 100%; min-height: 150px; }
+    .alumni-map-cta::after { right: -60px; }
+    .alumni-map-cta-sub { max-width: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<section class="page-header" style="background:url('assets/team-header-bg.png') center 65%/cover, #2d5561;padding:80px 24px 60px;">
+  <div class="container" style="max-width:1200px;">
+    <h1 style="font-family:var(--font-h);font-size:2.5rem;font-weight:800;color:white !important;margin-bottom:20px;"
+        data-zh="研究室校友" data-en="Lab Alumni">研究室校友</h1>
+  </div>
+</section>
+
+<!-- ALUMNI -->
+<section class="section-py">
+  <div class="container" style="max-width:1200px;">
+    <h2 class="display-h" style="font-size:1.7rem;font-weight:800;margin-bottom:8px;color:var(--wen-text);"
+        data-zh="歷屆學位論文" data-en="Theses Over the Years">歷屆學位論文</h2>
+    <p style="color:var(--wen-text-sub);font-size:15px;margin-bottom:24px;"
+       data-zh="自 2011 年至今，WenLab 培育的研究人員遍及學界、產業、政府部門與公衛機構。"
+       data-en="Since 2011, WenLab alumni have gone on to academia, industry, government and public health agencies.">
+      自 2011 年至今，WenLab 培育的研究人員遍及學界、產業、政府部門與公衛機構。</p>
+
+    <div class="media-stats">
+      <div class="media-stat">
+        <div class="media-stat-text">
+          <div class="media-stat-num">32</div>
+          <div class="media-stat-label" data-zh="篇學位論文" data-en="Theses">篇學位論文</div>
+        </div>
+        <img class="media-stat-illus" src="assets/undraw_certificate_cqps.svg" alt="" aria-hidden="true" loading="lazy">
+      </div>
+      <div class="media-stat">
+        <div class="media-stat-text">
+          <div class="media-stat-num">2011–2024</div>
+          <div class="media-stat-label" data-zh="研究軌跡" data-en="Years of research">研究軌跡</div>
+        </div>
+        <img class="media-stat-illus" src="assets/undraw_time-change_lyxp.svg" alt="" aria-hidden="true" loading="lazy">
+      </div>
+      <div class="media-stat">
+        <div class="media-stat-text">
+          <div class="media-stat-num">9</div>
+          <div class="media-stat-label" data-zh="大研究主題" data-en="Research themes">大研究主題</div>
+        </div>
+        <img class="media-stat-illus" src="assets/undraw_puzzle-solved_qdjq.svg" alt="" aria-hidden="true" loading="lazy">
+      </div>
+      <div class="media-stat">
+        <div class="media-stat-text">
+          <div class="media-stat-num">5</div>
+          <div class="media-stat-label" data-zh="研究區域（台・日・中・東南亞・全球）" data-en="Regions (TW · JP · SE Asia · China · Global)">研究區域（台・日・東南亞・中國・全球）</div>
+        </div>
+        <img class="media-stat-illus" src="assets/undraw_next-adventure_pzln.svg" alt="" aria-hidden="true" loading="lazy">
+      </div>
+    </div>
+
+    <a href="storymap.html" class="alumni-map-cta">
+      <div class="alumni-map-cta-body">
+        <div class="alumni-map-cta-title"
+             data-zh="互動式校友研究地圖" data-en="Explore the interactive alumni StoryMap">互動式校友研究地圖</div>
+        <div class="alumni-map-cta-sub"
+             data-zh="沿時間軸捲動，看每一篇歷屆學位論文落在世界地圖的哪個角落。"
+             data-en="Scroll the timeline to see where each thesis lands on the world map.">沿時間軸捲動，看每一篇歷屆學位論文落在世界地圖的哪個角落。</div>
+        <span class="alumni-map-cta-btn">
+          <span data-zh="開始探索" data-en="Start exploring">開始探索</span>
+          <i class="bi bi-arrow-right"></i>
+        </span>
+      </div>
+      <div class="alumni-map-cta-art">
+        <img src="assets/undraw_world_bdnk.svg" alt="" aria-hidden="true" loading="lazy">
+      </div>
+    </a>
+
+    <div class="alumni-table-wrap">
+      <table class="alumni-table">
+        <thead>
+          <tr>
+            <th style="width:80px;" data-zh="年份" data-en="Year">年份</th>
+            <th style="width:130px;" data-zh="姓名" data-en="Name">姓名</th>
+            <th style="width:120px;" data-zh="學位" data-en="Degree">學位</th>
+            <th data-zh="學位論文題目" data-en="Thesis Title">學位論文題目</th>
+          </tr>
+        </thead>
+        <tbody id="alumni-tbody"></tbody>
+      </table>
+    </div>
+    <p style="color:var(--wen-text-muted);font-size:12px;margin-top:14px;font-style:italic;"
+       data-zh="* 共 32 位校友（2011–2024），依畢業年份排序。點選論文題目可開啟全文連結。"
+       data-en="* 32 alumni (2011–2024), sorted by graduation year. Click a thesis title to open its full text.">
+      * 共 32 位校友（2011–2024），依畢業年份排序。點選論文題目可開啟全文連結。</p>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+<script src="js/storymap-data.js"></script>
+<script>
+  /* Build the alumni table from the same CSV-derived data as the StoryMap. */
+  (function () {
+    var D = window.WENLAB_STORYMAP;
+    var tb = document.getElementById('alumni-tbody');
+    if (!D || !tb) return;
+    function esc(s) { return String(s).replace(/"/g, '&quot;'); }
+    D.theses.forEach(function (d) {
+      var deg = d.degree_zh === '博士' ? 'PhD' : 'MS';
+      var titleInner = '<span data-zh="' + esc(d.title_zh) + '" data-en="' + esc(d.title_en) + '">' + d.title_zh + '</span>';
+      var titleCell = d.link
+        ? '<a class="alumni-thesis" href="' + d.link + '" target="_blank" rel="noopener">' + titleInner +
+          ' <i class="bi bi-box-arrow-up-right" style="font-size:11px;opacity:.55;"></i></a>'
+        : titleInner;
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td>' + d.year + '</td>' +
+        '<td data-zh="' + esc(d.name_zh) + '" data-en="' + esc(d.name_en) + '">' + d.name_zh + '</td>' +
+        '<td><span class="alumni-deg">' + deg + '</span> ' +
+          '<span data-zh="' + d.degree_zh + '" data-en="' + d.degree_en + '">' + d.degree_zh + '</span></td>' +
+        '<td>' + titleCell + '</td>';
+      tb.appendChild(tr);
+    });
+    var lang = 'zh';
+    try { lang = localStorage.getItem('wen-lang') || 'zh'; } catch (e) {}
+    if (window.setLang) window.setLang(lang);
+  })();
+</script>
+</body>
+</html>

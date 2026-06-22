@@ -1,0 +1,81 @@
+// ============================================================
+// WenLab — Bootstrap 變數覆寫（在 bootstrap/scss/variables 之前載入）
+// 色票、字型、圓角、陰影的單一來源；改這裡即全站生效
+// ============================================================
+
+// --- WenLab 品牌色票 ---
+$wen-navy:       #061E29;
+$wen-blue:       #1D546D;
+$wen-teal:       #5F9598;
+$wen-teal-light: #7AACAF;
+$wen-teal-pale:  #C5D9DA;
+$wen-bg:         #E1ECEE;
+$wen-surface:    #FFFFFF;
+$wen-cream:      #FAFBFB;
+$wen-border:     #D0D5D6;
+$wen-navbar-bg:  #DBECEC;
+$wen-header-bg:  #00121F;
+
+$wen-text:       $wen-navy;
+$wen-text-sub:   $wen-blue;
+$wen-text-muted: $wen-teal;
+
+// --- 字型 ---
+$font-h: 'Plus Jakarta Sans', 'Noto Sans TC', system-ui, sans-serif; // 標題
+$font-b: 'Noto Sans TC', 'Plus Jakarta Sans', system-ui, sans-serif; // 內文
+
+// --- 陰影與轉場 ---
+$shadow-subtle: 0 2px 10px rgba($wen-navy, .08);
+$shadow-hover:  0 8px 32px rgba($wen-navy, .16);
+$shadow-card:   $shadow-hover;
+$t: 200ms ease-out;
+
+// ============================================================
+// Bootstrap 覆寫（變數皆為 !default，先宣告即覆蓋）
+// ============================================================
+
+// 主題色
+$primary:   $wen-navy;
+$secondary: $wen-blue;
+$info:      $wen-teal;
+$light:     $wen-bg;
+$dark:      $wen-navy;
+
+// 版面
+$body-bg:      $wen-bg;
+$body-color:   $wen-text;
+$border-color: $wen-border;
+
+// 字型
+$font-family-sans-serif: $font-b;
+$headings-font-family:   $font-h;
+$headings-font-weight:   700;
+$font-size-base:         1.0625rem; // 17px — 全站基礎字級調大
+
+// 連結
+$link-color:           $wen-teal;
+$link-decoration:      none;
+$link-hover-color:     $wen-navy;
+$link-hover-decoration: none;
+
+// 圓角（設計稿：按鈕 5px、卡片 10px、大卡 12px）
+$border-radius:    .3125rem;  // 5px
+$border-radius-sm: .25rem;
+$border-radius-lg: .625rem;   // 10px
+$border-radius-xl: .75rem;    // 12px
+
+// 陰影
+$box-shadow:    $shadow-hover;
+$box-shadow-sm: $shadow-subtle;
+
+// 斷點：沿用 Bootstrap 預設（sm 576 / md 768 / lg 992 / xl 1200 / xxl 1400），
+// 設計稿的 991.98 / 575.98 即 lg / sm 斷點。如需調整在此覆寫 $grid-breakpoints。
+
+// 容器：設計稿主欄寬 1280px
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1280px,
+);

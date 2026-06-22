@@ -1,0 +1,29 @@
+// 對外輸出 CSS 自訂屬性：HTML 內嵌樣式大量使用 var(--wen-*)，
+// 值由 helpers-5.3/_variables.scss 的 SCSS 變數產生（單一來源）
+:root {
+  --wen-navy:       #{$wen-navy};
+  --wen-blue:       #{$wen-blue};
+  --wen-teal:       #{$wen-teal};
+  --wen-teal-light: #{$wen-teal-light};
+  --wen-teal-pale:  #{$wen-teal-pale};
+  --wen-bg:         #{$wen-bg};
+  --wen-surface:    #{$wen-surface};
+  --wen-text:       #{$wen-text};
+  --wen-text-sub:   #{$wen-text-sub};
+  --wen-text-muted: #{$wen-text-muted};
+  --wen-border:     #{$wen-border};
+  --wen-cream:      #{$wen-cream};
+  --shadow-card:    #{$shadow-card};
+  --shadow-subtle:  #{$shadow-subtle};
+  --shadow-hover:   #{$shadow-hover};
+  --t:              #{$t};
+  --font-h:         #{$font-h};
+  --font-b:         #{$font-b};
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-image: url('../assets/texture-light-grid.webp');
+  background-size: 400px;
+  background-attachment: fixed;
+}

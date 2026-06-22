@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="WenLab Multipage Site - Research" subtitle="Research projects across 5 themes — vector-borne disease, geo-computation, environment, healthcare, social" -->
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研究計畫 | WenLab — NTU 地理環境資源學系</title>
+<meta name="description" content="溫在弘教授研究計畫總覽：傳染病時空流行病學、地理計算方法與模式、環境監測與永續、GIS輔助緊急醫療、空間差異性與社會經濟議題等五大研究主題，收錄自2008年起逾60項研究計畫。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://wenlab501.github.io/research.html">
+<link rel="icon" type="image/png" href="assets/Wenlab_logo.png">
+<link href="stylesheets/all-5.3.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ---- Scrollspy + research layout ---- */
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+  .research-layout { display:grid; grid-template-columns:248px 1fr; gap:40px; align-items:start; }
+  .research-toc-wrap { position:sticky; top:88px; }
+  .research-toc { background:#fff; border:1px solid var(--wen-border); border-radius:.625rem; box-shadow:var(--shadow-subtle); padding:14px; }
+  .research-toc .toc-title { font-family:var(--font-h); font-weight:800; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--wen-text-muted); padding:4px 10px 12px; }
+  .research-toc ul { list-style:none; margin:0; padding:0; }
+  .toc-link { display:flex; align-items:center; gap:10px; padding:9px 10px; border-radius:8px; text-decoration:none; color:var(--wen-text-sub); font-size:13.5px; font-weight:600; line-height:1.45; border-left:3px solid transparent; transition:var(--t); }
+  .toc-link i { font-size:15px; flex-shrink:0; color:var(--wen-teal); transition:var(--t); }
+  .toc-link .toc-count { margin-left:auto; font-size:11px; font-weight:700; color:var(--wen-text-muted); background:var(--wen-bg); border-radius:20px; padding:1px 8px; }
+  .toc-link:hover { background:var(--wen-bg); color:var(--wen-text); }
+  .toc-link.active { background:rgba(95,149,152,.13); color:var(--wen-text); border-left-color:var(--wen-teal); }
+  .toc-link.active i { color:var(--wen-blue); }
+
+  .theme-block { scroll-margin-top:88px; margin-bottom:56px; }
+  .theme-block:last-child { margin-bottom:0; }
+  .theme-head { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+  .theme-head h3 { font-family:var(--font-h); font-weight:800; font-size:1.25rem; color:var(--wen-text); margin:0; }
+  .theme-head .theme-meta { font-size:12.5px; color:var(--wen-text-muted); font-weight:600; margin-top:3px; }
+
+  .proj-card { padding:15px 18px; display:flex; flex-direction:column; gap:6px; }
+  .proj-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .proj-years { font-family:var(--font-h); font-size:12px; font-weight:700; color:var(--accent,var(--wen-teal)); }
+  .proj-funder { font-family:var(--font-h); font-size:10.5px; font-weight:700; letter-spacing:.03em; color:#fff; background:var(--accent,var(--wen-teal)); border-radius:20px; padding:1px 9px; }
+  .proj-title { font-size:14px; font-weight:700; color:var(--wen-text); line-height:1.55; }
+  .proj-sub { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:11.5px; color:var(--wen-text-muted); margin-top:2px; }
+  .proj-role { font-weight:600; color:var(--wen-text-sub); }
+  .proj-code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:10.5px; word-break:break-word; }
+  .proj-link { display:inline-block; font-size:11px; font-weight:700; color:var(--accent,var(--wen-teal)); text-decoration:none; border:1px solid currentColor; border-radius:5px; padding:0 6px; margin-left:4px; line-height:1.7; transition:var(--t); }
+  .proj-link:hover { color:#fff; background:var(--accent,var(--wen-teal)); }
+
+  @media (max-width: 991.98px) {
+    .research-layout { grid-template-columns:1fr; gap:18px; }
+    .research-toc-wrap { position:sticky; top:68px; z-index:15; }
+    .research-toc { padding:8px; }
+    .research-toc .toc-title { display:none; }
+    .research-toc ul { display:flex; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .toc-link { border-left:none; border-bottom:3px solid transparent; white-space:nowrap; padding:8px 12px; }
+    .toc-link.active { border-left:none; border-bottom-color:var(--wen-teal); }
+    .toc-link .toc-count { display:none; }
+  }
+</style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#research-toc" data-bs-root-margin="-90px 0px -55%" data-bs-smooth-scroll="true">
+
+<div id="site-nav"></div>
+
+<section class="page-header" style="background:url('assets/research-header-bg.png') center/cover, #00121F;">
+  <div class="container" style="max-width:1200px;">
+    <h1 style="font-family:var(--font-h);font-size:2.2rem;font-weight:800;color:white !important;"
+        data-zh="研究計畫" data-en="Research Projects">研究計畫</h1>
+    <p style="color:rgba(255,255,255,0.85) !important;font-size:16px;max-width:720px;line-height:1.85;margin-top:8px;"
+       data-zh="自2008年起擔任主持人或共同主持人，執行農業部、國科會（科技部）、衛福部疾管署、國家衛生研究院及產學合作等單位逾 60 項研究計畫，涵蓋五大研究主題。"
+       data-en="Serving as PI or co-PI on 60+ projects funded by the Ministry of Agriculture, NSTC/MOST/NSC, Taiwan CDC, NHRI and industry partners since 2008, spanning five core research themes. ">
+      自2008年起擔任主持人或共同主持人，執行農業部、國科會（科技部）、衛福部疾管署、國家衛生研究院及產學合作等單位逾 60 項研究計畫，涵蓋五大研究主題。</p>
+  </div>
+</section>
+
+<section class="section-py">
+  <div class="container" style="max-width:1200px;">
+    <div class="research-layout">
+
+      <!-- ============ Scrollspy table of contents ============ -->
+      <aside class="research-toc-wrap">
+        <nav id="research-toc" class="research-toc">
+          <div class="toc-title" data-zh="研究主題" data-en="Research Topics">研究主題</div>
+          <ul>
+            <li><a class="toc-link" href="#theme-1"><i class="bi bi-activity"></i><span data-zh="傳染病時空流行病學" data-en="Spatiotemporal Epidemiology">傳染病時空流行病學</span><span class="toc-count">21</span></a></li>
+            <li><a class="toc-link" href="#theme-2"><i class="bi bi-cpu"></i><span data-zh="地理計算方法與模式" data-en="Geo-computational Methods">地理計算方法與模式</span><span class="toc-count">18</span></a></li>
+            <li><a class="toc-link" href="#theme-3"><i class="bi bi-tree"></i><span data-zh="環境監測與永續研究" data-en="Environment & Sustainability">環境監測與永續研究</span><span class="toc-count">9</span></a></li>
+            <li><a class="toc-link" href="#theme-4"><i class="bi bi-hospital"></i><span data-zh="緊急醫療與健康照護" data-en="Emergency Medicine & Health Care">緊急醫療與健康照護</span><span class="toc-count">6</span></a></li>
+            <li><a class="toc-link" href="#theme-5"><i class="bi bi-bar-chart-line"></i><span data-zh="空間差異與社會經濟" data-en="Spatial Disparities & Society">空間差異與社會經濟</span><span class="toc-count">8</span></a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- ============ Research content ============ -->
+      <div class="research-content">
+
+        <!-- ===== Theme 1 ===== -->
+        <section id="theme-1" class="theme-block" style="--accent:var(--wen-teal);">
+          <div class="theme-head">
+            <div class="feature-icon" style="flex-shrink:0;margin:0;"><i class="bi bi-activity"></i></div>
+            <div>
+              <h3 data-zh="傳染病時空流行病學" data-en="Spatiotemporal Epidemiology of Infectious Diseases">傳染病時空流行病學</h3>
+              <div class="theme-meta" data-zh="21 項計畫 · 2008–2027" data-en="21 projects · 2008–2027">21 項計畫 · 2008–2027</div>
+            </div>
+          </div>
+          <div class="row g-3">
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2025</span><span class="proj-funder">MOA</span></div>
+              <div class="proj-title" data-zh="整合運禽車輛 GPS 行駛軌跡於禽流感疫情追蹤與防治" data-en="Integrating GPS Trajectories of Poultry-transport Vehicles for Avian Influenza Tracking and Control">整合運禽車輛 GPS 行駛軌跡於禽流感疫情追蹤與防治</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">114農科-5.5.4-檢-01</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2025</span><span class="proj-funder">MOA</span></div>
+              <div class="proj-title" data-zh="影響野生動物（鼬獾）狂犬病擴散的環境因子與風險屏障模型" data-en="Environmental Factors and Risk-barrier Models for Rabies Diffusion in Wildlife (Ferret-badgers)">影響野生動物（鼬獾）狂犬病擴散的環境因子與風險屏障模型</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">114農科-5.1.2-檢-12</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2025–2026</span><span class="proj-funder">NSTC</span></div>
+              <div class="proj-title" data-zh="後疫情時期民眾調適的時空行為：印度與台灣的比較研究" data-en="Spatiotemporal Adaptation Behavior in the Post-pandemic Era: A Comparative Study of India and Taiwan">後疫情時期民眾調適的時空行為：印度與台灣的比較研究</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人（國際合作）" data-en="PI (Int'l Collaboration)">計畫主持人（國際合作）</span><span class="proj-code">NSTC 114-2923-H-002-001-MY2</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2024–2027</span><span class="proj-funder">NSTC</span></div>
+              <div class="proj-title" data-zh="辨別傳染病不同擴散結構的時空特徵" data-en="Identifying Spatiotemporal Signatures of Different Diffusion Structures of Infectious Diseases">辨別傳染病不同擴散結構的時空特徵</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">NSTC 113-2410-H-002-229-MY3</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2021–2024</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title" data-zh="評估都市可承受的疫情規模：整合疫情擴散與篩檢資源可及性的時空風險模式" data-en="Assessing the Epidemic Scale a City Can Sustain: Spatiotemporal Risk Models Integrating Spread and Screening-resource Accessibility">評估都市可承受的疫情規模：整合疫情擴散與篩檢資源可及性的時空風險模式</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">MOST 110-2410-H-002-131-MY3</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2021</span><span class="proj-funder">NHRI</span></div>
+              <div class="proj-title" data-zh="登革熱疫情環境防治措施成效評估的分析架構" data-en="An Analytical Framework for Evaluating the Effectiveness of Environmental Control Measures against Dengue">登革熱疫情環境防治措施成效評估的分析架構</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">NHRI-110A1-MRCO-01212102</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2019</span><span class="proj-funder">NTUH</span></div>
+              <div class="proj-title" data-zh="多價肺炎鏈球菌結合型疫苗對預防台灣兒童肺炎的成效：以全國人口為基礎的疾病發生率趨勢及地理分析" data-en="Effectiveness of Polyvalent Pneumococcal Conjugate Vaccines in Preventing Childhood Pneumonia in Taiwan: Nationwide Incidence Trends and Geographic Analysis">多價肺炎鏈球菌結合型疫苗對預防台灣兒童肺炎的成效：以全國人口為基礎的疾病發生率趨勢及地理分析</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">UN108-012</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2018–2021</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title" data-zh="評估疾病空間群聚的特徵尺度於偵測疫情擴散的臨界條件" data-en="Characteristic Scales of Disease Spatial Clusters for Detecting Critical Conditions of Epidemic Spread">評估疾病空間群聚的特徵尺度於偵測疫情擴散的臨界條件</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">MOST 107-2410-H-002-167-MY3</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2017</span><span class="proj-funder">CDC</span></div>
+              <div class="proj-title" data-zh="整合季節性食媒傳染病發生率於評估疫情爆發閾值的早期預警系統" data-en="Early-warning System Integrating Seasonal Foodborne-disease Incidence to Assess Outbreak Thresholds">整合季節性食媒傳染病發生率於評估疫情爆發閾值的早期預警系統</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">MOHW106-CDC-C-114-000301</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2016</span><span class="proj-funder">CDC</span></div>
+              <div class="proj-title" data-zh="食媒性病原感染的發生率估計與時空群聚預警機制的評估" data-en="Incidence Estimation of Foodborne Pathogen Infections and Evaluation of Spatiotemporal Cluster-warning Mechanisms">食媒性病原感染的發生率估計與時空群聚預警機制的評估</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">MOHW105-CDC-C-114-000301</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2015</span><span class="proj-funder">CDC</span></div>
+              <div class="proj-title" data-zh="食媒性病原感染的時空群聚監測預警架構" data-en="A Spatiotemporal Cluster Surveillance and Warning Framework for Foodborne Pathogen Infections">食媒性病原感染的時空群聚監測預警架構</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">MOHW104-CDC-C-114-000704</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2016</span><span class="proj-funder">NHRI</span></div>
+              <div class="proj-title" data-zh="氣候暖化對於台灣登革熱疫情多重脆弱性的時空變遷" data-en="Spatiotemporal Changes in Multiple Vulnerabilities of Dengue Epidemics under Climate Warming in Taiwan">氣候暖化對於台灣登革熱疫情多重脆弱性的時空變遷</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">NHRI-105A1-PDCO-01161611</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2014–2016</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title" data-zh="整合地理資訊與社會網絡分析，建立結核病接觸者潛伏感染及發病的空間預測模式" data-en="Integrating GIS and Social Network Analysis to Build Spatial Prediction Models of Latent Infection and Onset among Tuberculosis Contacts">整合地理資訊與社會網絡分析，建立結核病接觸者潛伏感染及發病的空間預測模式</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人（優秀年輕學者）" data-en="PI (Outstanding Young Scholar)">計畫主持人（優秀年輕學者）</span><span class="proj-code">MOST 103-2628-H-002-006-MY2</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2013–2014</span><span class="proj-funder">MOA</span></div>
+              <div class="proj-title" data-zh="台灣地區新型隱球菌腦膜炎與飼養鴿舍密度的空間風險評估" data-en="Spatial Risk Assessment of Cryptococcal Meningitis and Pigeon-coop Density in Taiwan">台灣地區新型隱球菌腦膜炎與飼養鴿舍密度的空間風險評估</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">102 AS-10.1.1-BQ-B3</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2011–2015</span><span class="proj-funder">MOA</span></div>
+              <div class="proj-title" data-zh="氣候變遷對人畜共通傳染病之影響與防疫策略" data-en="Impacts of Climate Change on Zoonotic Infectious Diseases and Control Strategies">氣候變遷對人畜共通傳染病之影響與防疫策略</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">100AS-9.6.1-BQ-B1, 2-2</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2009–2011</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title" data-zh="台灣登革熱疫情的計量地理分析與空間模擬" data-en="Quantitative Geographic Analysis and Spatial Simulation of Dengue Epidemics in Taiwan">台灣登革熱疫情的計量地理分析與空間模擬</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">NSC 98-2410-H-002-168-MY2</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2008–2009</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title" data-zh="建立登革熱疫情傳播網絡的時空風險模型" data-en="Building Spatiotemporal Risk Models of Dengue Transmission Networks">建立登革熱疫情傳播網絡的時空風險模型</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">NSC 97-2314-B-002-180</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2012–2013</span><span class="proj-funder">CDC</span></div>
+              <div class="proj-title" data-zh="氣候變遷下台灣地區登革熱空間時間分布預測模型建置研究" data-en="Building Spatiotemporal Distribution Prediction Models of Dengue in Taiwan under Climate Change">氣候變遷下台灣地區登革熱空間時間分布預測模型建置研究</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫協同主持人（疾病管制局）" data-en="Co-PI (Taiwan CDC)">計畫協同主持人（疾病管制局）</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2011</span><span class="proj-funder">CDC</span></div>
+              <div class="proj-title" data-zh="埃及斑蚊及白線斑蚊消長因子及因應對策研究" data-en="Population-dynamics Factors of Aedes aegypti and Aedes albopictus and Response Strategies">埃及斑蚊及白線斑蚊消長因子及因應對策研究</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫協同主持人" data-en="Co-PI">計畫協同主持人</span><span class="proj-code">DOH100-DC-2014</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2008–2011</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title" data-zh="登革流行嚴重度漸增的流行病學探究及其對全球登革出血熱控制的公共衛生啟示" data-en="Epidemiology of Increasing Dengue Severity and Its Public-health Implications for Global Dengue Hemorrhagic Fever Control">登革流行嚴重度漸增的流行病學探究及其對全球登革出血熱控制的公共衛生啟示</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">NSC 97-2745-B-002-001</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2009–2010</span><span class="proj-funder">CDC</span></div>
+              <div class="proj-title" data-zh="登革熱病媒蚊誘蚊產卵器監測計畫" data-en="Surveillance of Dengue Vector Mosquitoes Using Ovitraps">登革熱病媒蚊誘蚊產卵器監測計畫</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫協同主持人" data-en="Co-PI">計畫協同主持人</span><span class="proj-code">DOH-98-DC-2037</span></div>
+            </div></div>
+
+          </div>
+        </section>
+
+        <!-- ===== Theme 2 ===== -->
+        <section id="theme-2" class="theme-block" style="--accent:var(--wen-blue);">
+          <div class="theme-head">
+            <div class="feature-icon" style="flex-shrink:0;margin:0;background:rgba(29,84,109,.1);color:var(--wen-blue);"><i class="bi bi-cpu"></i></div>
+            <div>
+              <h3 data-zh="地理計算方法與模式" data-en="Geo-computational Methods and Models">地理計算方法與模式</h3>
+              <div class="theme-meta" data-zh="18 項計畫 · 2009–2026" data-en="18 projects · 2009–2026">18 項計畫 · 2009–2026</div>
+            </div>
+          </div>
+          <div class="row g-3">
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2025–2026</span><span class="proj-funder">NSTC</span></div>
+              <div class="proj-title"><span data-zh="自適應流動網絡圖形的自動生成方法：建立 AI 代理的架構" data-en="Automatic Generation of Adaptive Flow-network Graphs: Building an AI-agent Framework">自適應流動網絡圖形的自動生成方法：建立 AI 代理的架構</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">NSTC 114-2121-M-002-004</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2023–2025</span><span class="proj-funder">NSTC</span></div>
+              <div class="proj-title"><span data-zh="設計 Minecraft 三維遊戲情境，建立民眾疫苗決策的搭便車行為模式" data-en="Designing 3D Minecraft Game Scenarios to Model Free-riding Behavior in Public Vaccination Decisions">設計 Minecraft 三維遊戲情境，建立民眾疫苗決策的搭便車行為模式</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">NSTC 112-2121-M-002-002</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2019–2021</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title"><span data-zh="建立傳染疾病的全球傳播風險預警架構：評估台灣與東亞區域的境外移入風險" data-en="A Global Transmission-risk Early-warning Framework for Infectious Diseases: Assessing Imported-case Risk for Taiwan and East Asia">建立傳染疾病的全球傳播風險預警架構：評估台灣與東亞區域的境外移入風險</span>
+                <a href="https://wenlab501.github.io/iGEAR/" target="_blank" rel="noopener" class="proj-link">iGEAR</a>
+                <a href="https://spatiallab.shinyapps.io/REDOS/" target="_blank" rel="noopener" class="proj-link">REDOS</a></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人（沙克爾頓計畫）" data-en="PI (Shackleton Program)">計畫主持人（沙克爾頓計畫）</span><span class="proj-code">MOST 108-2638-H-002-002-MY2</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2020</span><span class="proj-funder">NHRI</span></div>
+              <div class="proj-title"><span data-zh="建立疫情剖繪的決策支援架構：整合擴散型態的多變數預測模式" data-en="A Decision-support Framework for Epidemic Profiling: Multivariate Prediction Models Integrating Diffusion Patterns">建立疫情剖繪的決策支援架構：整合擴散型態的多變數預測模式</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">MR-109-CO-14</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2019</span><span class="proj-funder">NHRI</span></div>
+              <div class="proj-title"><span data-zh="建置登革熱擴散的自動化時空分析模組" data-en="An Automated Spatiotemporal Analysis Module for Dengue Diffusion">建置登革熱擴散的自動化時空分析模組</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">NHRI-108A1-MRCO-0619191</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2017–2019</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title"><span data-zh="「數位健康與醫療生態系創新營運模式研究中心」設立與維運計畫—子計畫：高齡照護資源供需的地理資訊平台" data-en="Research Center for Digital Health & Healthcare-ecosystem Innovation — Subproject: A GIS Platform for Supply–Demand of Elderly-care Resources">「數位健康與醫療生態系創新營運模式研究中心」設立與維運計畫—子計畫：高齡照護資源供需的地理資訊平台（供需媒合、地圖雲端、智能模型、新創業態）</span>
+                <a href="https://wenlab501.github.io/DHP/" target="_blank" rel="noopener" class="proj-link">CARTO-App</a></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="子計畫主持人" data-en="Subproject PI">子計畫主持人</span><span class="proj-code">MOST 106-2420-H-002-026；107-2420-H-002-002；108-2420-H-002-001；109-2425-H-002-001</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2017</span><span class="proj-funder">NHRI</span></div>
+              <div class="proj-title"><span data-zh="結合氣象雷達資料與衛星遙測於偵測都市易積水地區的環境特徵" data-en="Combining Weather-radar Data and Satellite Remote Sensing to Detect Environmental Features of Urban Flood-prone Areas">結合氣象雷達資料與衛星遙測於偵測都市易積水地區的環境特徵</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">NHRI-106A1-MRCO-1517176</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2016–2019</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title"><span data-zh="建立高時空解析度的地理人口分區架構" data-en="Building a High Spatiotemporal-resolution Geo-demographic Zoning Framework">建立高時空解析度的地理人口分區架構</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人（吳大猷先生紀念獎）" data-en="PI (Ta-You Wu Memorial Award)">計畫主持人（吳大猷先生紀念獎）</span><span class="proj-code">MOST 105-2410-H-002-150-MY3</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2015–2017</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title"><span data-zh="以空間巨量資料及群眾外包為基礎，建置具有跨界生態早期預警能力的都市環境感測架構—子計畫：建置多層次都市人口流動時空模式於傳染病擴散風險評估" data-en="A Big-data & Crowdsourcing-based Urban Environmental Sensing Framework with Cross-boundary Ecological Early Warning — Subproject: Multi-level Urban Population-mobility Models for Disease-spread Risk">以空間巨量資料及群眾外包為基礎，建置具有跨界生態早期預警能力的都市環境感測架構—子計畫：建置多層次都市人口流動時空模式於傳染病擴散風險評估</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">MOST 104-2627-M-002-020；105-2627-M-002-018；106-2627-M-002-010</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2014–2015</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title"><span data-zh="地理網絡分析模組的開發與產品化" data-en="Development and Productization of a Geographic Network-analysis Module">地理網絡分析模組的開發與產品化</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人（產學合作）" data-en="PI (Industry–Academia)">計畫主持人（產學合作）</span><span class="proj-code">MOST 103-2622-M-002-003-CC2</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2013–2015</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title"><span data-zh="空間致能的智慧城市架構：以行動裝置感測人群接觸頻率於傳染病爆發的預警" data-en="A Spatially-enabled Smart-city Framework: Sensing Crowd Contact Frequency via Mobile Devices for Outbreak Early Warning">空間致能的智慧城市架構：以行動裝置感測人群接觸頻率於傳染病爆發的預警</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">NSC 102-2627-M-002-009；MOST 103-2627-M-002-006</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2013–2014</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title"><span data-zh="建立偵測時空群聚動態的分析方法：以追蹤傳染病擴散的傳播鏈為例" data-en="Analytical Methods for Detecting Spatiotemporal Cluster Dynamics: Tracing Transmission Chains of Infectious Diseases">建立偵測時空群聚動態的分析方法：以追蹤傳染病擴散的傳播鏈為例</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">NSC 102-2410-H-002-168</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2015–2016</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title"><span data-zh="反覆式囚犯困局中可自我聲譽調整能力之智慧型代理人的影響" data-en="Effects of Reputation-adjusting Intelligent Agents in the Iterated Prisoner's Dilemma">反覆式囚犯困局中可自我聲譽調整能力之智慧型代理人的影響</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">MOST 104-2221-E-182-047</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2013–2016</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title"><span data-zh="以眼動儀探究空間認知對電子地圖判讀策略與尋路成效的影響" data-en="An Eye-tracking Study of Spatial Cognition on Electronic-map Reading Strategies and Wayfinding Performance">以眼動儀探究空間認知對電子地圖判讀策略與尋路成效的影響</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">NSC 102-2511-S-003-037-MY3</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2013–2014</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title"><span data-zh="連續依變項與計數依變項之地理加權自相關模式" data-en="Geographically Weighted Autocorrelation Models for Continuous and Count Dependent Variables">連續依變項與計數依變項之地理加權自相關模式</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">NSC 102-2119-M-032-001</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2012–2013</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title"><span data-zh="整合節點的時空變異於網絡連接拓樸分析：建立動態生態網絡的分析方法" data-en="Integrating Node Spatiotemporal Variation into Network-topology Analysis: Methods for Dynamic Ecological Networks">整合節點的時空變異於網絡連接拓樸分析：建立動態生態網絡的分析方法</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">NSC 101-2119-M-002-020</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2010–2011</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title"><span data-zh="新型流感傳播動態之最佳交通阻絕策略施行方式及時間點" data-en="Optimal Implementation and Timing of Traffic-blocking Strategies for Novel Influenza Spread">新型流感傳播動態之最佳交通阻絕策略施行方式及時間點</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">NSC 99-2314-B-182-031</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2009–2010</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title"><span data-zh="台灣新型流感傳播動態電腦模擬系統暨防疫政策成本效益及策略評估分析" data-en="A Computer-simulation System for Novel-influenza Spread in Taiwan and Cost-benefit / Strategy Evaluation of Control Policies">台灣新型流感傳播動態電腦模擬系統暨防疫政策成本效益及策略評估分析</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">NSC 98-2314-B-182-043</span></div>
+            </div></div>
+
+          </div>
+        </section>
+
+        <!-- ===== Theme 3 ===== -->
+        <section id="theme-3" class="theme-block" style="--accent:var(--wen-teal);">
+          <div class="theme-head">
+            <div class="feature-icon" style="flex-shrink:0;margin:0;"><i class="bi bi-tree"></i></div>
+            <div>
+              <h3 data-zh="環境監測與永續研究" data-en="Environmental Monitoring and Sustainability Studies">環境監測與永續研究</h3>
+              <div class="theme-meta" data-zh="9 項計畫 · 2009–2026" data-en="9 projects · 2009–2026">9 項計畫 · 2009–2026</div>
+            </div>
+          </div>
+          <div class="row g-3">
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2025–2026</span><span class="proj-funder">Delta</span></div>
+              <div class="proj-title" data-zh="分析製造業產業關連的都市低碳空間治理與政策路徑" data-en="Urban Low-carbon Spatial Governance and Policy Pathways Based on Manufacturing Industrial Linkages">分析製造業產業關連的都市低碳空間治理與政策路徑</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人（台達電子創新研究基金）" data-en="PI (Delta Electronics Foundation)">計畫主持人（台達電子創新研究基金）</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2023–2026</span><span class="proj-funder">NSTC</span></div>
+              <div class="proj-title" data-zh="SIER 及 REACHES 資料庫之數位化中國歷史文獻記錄所顯露之氣候變遷與社會衝擊" data-en="Climate Change and Social Impacts Revealed by Digitized Chinese Historical Records in the SIER and REACHES Databases">SIER 及 REACHES 資料庫之數位化中國歷史文獻記錄所顯露之氣候變遷與社會衝擊</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">NSTC 112-2122-M-001-001；113-2122-M-001-003；114-2122-M-001-001</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2021</span><span class="proj-funder">Cathay</span></div>
+              <div class="proj-title" data-zh="氣候變遷情境對於車險理賠的影響" data-en="Impacts of Climate-change Scenarios on Auto-insurance Claims">氣候變遷情境對於車險理賠的影響</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人（國泰金控產學合作）" data-en="PI (Cathay Financial Holdings)">計畫主持人（國泰金控產學合作）</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2019–2021</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title" data-zh="重塑全球入侵物種戰爭：創建台灣為亞洲紅火蟻防治、預測及教育樞紐" data-en="Reshaping the Global War on Invasive Species: Making Taiwan an Asian Hub for Red Imported Fire Ant Control, Prediction and Education">重塑全球入侵物種戰爭：創建台灣為亞洲紅火蟻防治、預測及教育樞紐</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人（沙克爾頓計畫）" data-en="Co-PI (Shackleton Program)">計畫共同主持人（沙克爾頓計畫）</span><span class="proj-code">MOST 108-2638-H-002-001-MY2</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2015–2017</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title" data-zh="氣候變遷與健康調適之科學評估工具建置" data-en="Building Scientific Assessment Tools for Climate Change and Health Adaptation">氣候變遷與健康調適之科學評估工具建置</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">MOST 104-2621-M-001-003；105-2621-M-001-002</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2013–2016</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title" data-zh="低碳永續農村之能源供需分析及模式建置" data-en="Energy Supply–Demand Analysis and Modeling for Low-carbon Sustainable Rural Communities">低碳永續農村之能源供需分析及模式建置</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">NSC 102-2313-B-002-054-MY3</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2012–2013</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title" data-zh="水資源系統跨領域脆弱度評估" data-en="Interdisciplinary Vulnerability Assessment of Water-resource Systems">水資源系統跨領域脆弱度評估</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">NSC 101-2625-M-008-015</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2009–2012</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title" data-zh="「無線感測器網路技術」專題計畫：台北市區微型空氣品質監測網" data-en="Wireless Sensor Network Technology: A Micro-scale Air-quality Monitoring Network in Urban Taipei">「無線感測器網路技術」專題計畫：台北市區微型空氣品質監測網</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫主持人" data-en="PI">計畫主持人</span><span class="proj-code">NSC 98-2218-E-002-041；99-2218-E-002-016；100-2218-E-002-006</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2011–2012</span><span class="proj-funder">YMSNP</span></div>
+              <div class="proj-title" data-zh="人類活動對陽明山國家公園生物資源及地理環境的影響調查" data-en="Survey of Human-activity Impacts on Biological Resources and the Geographic Environment of Yangmingshan National Park">人類活動對陽明山國家公園生物資源及地理環境的影響調查</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人（陽明山國家公園管理處）" data-en="Co-PI (Yangmingshan NP)">計畫共同主持人（陽明山國家公園管理處）</span></div>
+            </div></div>
+
+          </div>
+        </section>
+
+        <!-- ===== Theme 4 ===== -->
+        <section id="theme-4" class="theme-block" style="--accent:var(--wen-blue);">
+          <div class="theme-head">
+            <div class="feature-icon" style="flex-shrink:0;margin:0;background:rgba(29,84,109,.1);color:var(--wen-blue);"><i class="bi bi-hospital"></i></div>
+            <div>
+              <h3 data-zh="緊急醫療與健康照護" data-en="GIS-based Emergency Medicine and Health Care">應用地理資訊系統的緊急醫療與健康照護</h3>
+              <div class="theme-meta" data-zh="6 項計畫 · 2008–2023" data-en="6 projects · 2008–2023">6 項計畫 · 2008–2023</div>
+            </div>
+          </div>
+          <div class="row g-3">
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2022–2023</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title" data-zh="導入多媒人工智能與地理資訊及區塊鏈技術的新時代緊急醫療指揮派遣及葉克膜急救中心系統" data-en="A New-generation Emergency Medical Dispatch and ECMO Resuscitation-center System Incorporating Multimedia AI, GIS and Blockchain">導入多媒人工智能與地理資訊及區塊鏈技術的新時代緊急醫療指揮派遣及葉克膜急救中心系統</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">111-2320-B-002-055</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2019–2021</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title" data-zh="開發網頁化救護派遣儘早急救品管自動化與視覺化作業系統，優化社區急救志願者策略部署提昇救護派遣儘早急救效能" data-en="A Web-based Automated/Visualized QA System for Early Dispatch Resuscitation and Optimized Deployment of Community First Responders">開發網頁化救護派遣儘早急救品管自動化與視覺化作業系統，優化社區急救志願者策略部署提昇救護派遣儘早急救效能</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">108-2320-B-002-053-MY2</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2019–2020</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title" data-zh="利用同步即時遠距照護合併隨身穿戴無脈壓帶血壓心律與空汙量測進行血壓變異度綜效共振探討" data-en="Synchronous Tele-care with Wearable Cuffless Blood-pressure/Heart-rate and Air-pollution Sensing to Explore Blood-pressure Variability Resonance">利用同步即時遠距照護合併隨身穿戴無脈壓帶血壓心律與空汙量測進行血壓變異度綜效共振探討</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">108-2314-B-002-200</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2012–2015</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title" data-zh="應用到院前心跳停止登錄系統，發展 e 化品質監測，創新急救影像感測分析，與優化公眾去顫場所規劃以提昇急救復甦品質" data-en="Using the Out-of-hospital Cardiac-arrest Registry to Develop e-Quality Monitoring, Innovative Resuscitation Image Sensing, and Optimized Public Defibrillator Siting">應用到院前心跳停止登錄系統，發展 e 化品質監測，創新急救影像感測分析，與優化公眾去顫場所規劃以提昇急救復甦品質</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">NSC 101-2314-B-002-122-MY3</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2011–2012</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title" data-zh="應用「網路化心跳停止病患登錄系統」建置急救復甦執行成效之品質管理系統與公眾去顫急救系統場所規劃" data-en="A Web-based Cardiac-arrest Registry for Resuscitation-quality Management and Public Defibrillation-site Planning">應用「網路化心跳停止病患登錄系統」建置急救復甦執行成效之品質管理系統與公眾去顫急救系統場所規劃</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">NSC 100-2314-B-002-111</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2008–2011</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title" data-zh="網路化心跳停止病患登錄體系建立與地理資訊系統之應用" data-en="Establishing a Web-based Cardiac-arrest Patient Registry and Its GIS Applications">網路化心跳停止病患登錄體系建立與地理資訊系統之應用</div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">NSC 97-2314-B-002-061-MY3</span></div>
+            </div></div>
+
+          </div>
+        </section>
+
+        <!-- ===== Theme 5 ===== -->
+        <section id="theme-5" class="theme-block" style="--accent:var(--wen-teal);">
+          <div class="theme-head">
+            <div class="feature-icon" style="flex-shrink:0;margin:0;"><i class="bi bi-bar-chart-line"></i></div>
+            <div>
+              <h3 data-zh="空間差異與社會經濟" data-en="Spatial Disparities for Socioeconomic Studies">空間不均的社會經濟議題</h3>
+              <div class="theme-meta" data-zh="8 項計畫 · 2008–2027" data-en="8 projects · 2008–2027">8 項計畫 · 2008–2027</div>
+            </div>
+          </div>
+          <div class="row g-3">
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2025–2027</span><span class="proj-funder">NTU</span></div>
+              <div class="proj-title"><span data-zh="子計畫：強化照護資源供需空間配置分析的長照韌性社區" data-en="Subproject: Resilient Long-term-care Communities through Spatial Supply–Demand Allocation of Care Resources">子計畫：強化照護資源供需空間配置分析的長照韌性社區</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="子計畫主持人（臺大核心群）" data-en="Subproject PI (NTU Core Group)">子計畫主持人（臺大核心群）</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2022–2025</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title"><span data-zh="「大學與地方政府合作推動地方人文發展與跨域治理」推動與協調計畫" data-en="A Coordination Project for University–Local Government Collaboration on Regional Humanistic Development and Cross-domain Governance">「大學與地方政府合作推動地方人文發展與跨域治理」推動與協調計畫</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">111-2420-H-002-007-MY3</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2024–2025</span><span class="proj-funder">NSTC</span></div>
+              <div class="proj-title"><span data-zh="社區環境、代間互動與中高齡者年齡歧視關係之研究" data-en="Community Environment, Intergenerational Interaction, and Ageism toward Middle-aged and Older Adults">社區環境、代間互動與中高齡者年齡歧視關係之研究</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">113-2410-H-002-074</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2021–2022</span><span class="proj-funder">MOST</span></div>
+              <div class="proj-title"><span data-zh="建置公衛研究專用之環境資料整合平台" data-en="Building an Integrated Environmental-data Platform for Public-health Research">建置公衛研究專用之環境資料整合平台</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">110-2314-B-038-057</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2011–2012</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title"><span data-zh="戰後台灣人口變遷與趨勢：人口 GIS 資料庫與地圖集的建置與出版" data-en="Post-war Population Change and Trends in Taiwan: Building and Publishing a Population GIS Database and Atlas">戰後台灣人口變遷與趨勢：人口 GIS 資料庫與地圖集的建置與出版</span>
+                <a href="http://www.psc.ntu.edu.tw/censusmap/book/publication.htm" target="_blank" rel="noopener" class="proj-link" data-zh="出版品" data-en="Publication">出版品</a></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">NSC 100-2631-H-002-033</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2011</span><span class="proj-funder">MOI</span></div>
+              <div class="proj-title"><span data-zh="國土資訊系統社會經濟資料庫建置與共同平台推動計畫" data-en="National Geographic Information System: Socioeconomic Database Construction and Common-platform Promotion">國土資訊系統社會經濟資料庫建置與共同平台推動計畫</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人（內政部委託）" data-en="Co-PI (Ministry of the Interior)">計畫共同主持人（內政部委託）</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2010–2013</span><span class="proj-funder">NSC</span></div>
+              <div class="proj-title"><span data-zh="建構「人、時、地三向度整合」的健康不平等研究取徑—社會及地理空間之時空動態關係" data-en="A 'Person–Time–Place' Integrated Research Approach to Health Inequality: Spatiotemporal Dynamics across Social and Geographic Space">建構「人、時、地三向度整合」的健康不平等研究取徑—社會及地理空間之時空動態關係</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人" data-en="Co-PI">計畫共同主持人</span><span class="proj-code">NSC 99-2410-H-002-038-MY3</span></div>
+            </div></div>
+
+            <div class="col-lg-6"><div class="wen-card proj-card">
+              <div class="proj-meta"><span class="proj-years">2008–2010</span><span class="proj-funder">RDEC</span></div>
+              <div class="proj-title"><span data-zh="社會發展政策統計與調查資料庫規劃" data-en="Planning of Statistics and Survey Databases for Social-development Policy">社會發展政策統計與調查資料庫規劃</span></div>
+              <div class="proj-sub"><span class="proj-role" data-zh="計畫共同主持人（行政院研考會委託）" data-en="Co-PI (Executive Yuan RDEC)">計畫共同主持人（行政院研考會委託）</span><span class="proj-code">RDEC-RES-097-029</span></div>
+            </div></div>
+
+          </div>
+        </section>
+
+        <!-- Source link -->
+        <div style="margin-top:40px;padding-top:20px;border-top:1px solid var(--wen-border);">
+          <a href="https://homepage.ntu.edu.tw/~wenthung/topic.htm" target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--wen-text-sub);text-decoration:none;font-weight:500;transition:var(--t);"
+             class="archive-link">
+            <i class="bi bi-box-arrow-up-right" style="font-size:13px;"></i>
+            <span data-zh="完整計畫清單（個人首頁）" data-en="Full project list (homepage)">完整計畫清單（個人首頁）</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

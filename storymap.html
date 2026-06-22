@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="WenLab Multipage Site - StoryMap" subtitle="Scroll-driven map narrative of alumni theses, by study area and research theme" -->
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>校友研究地圖 | WenLab — NTU 地理環境資源學系</title>
+<meta name="description" content="WenLab 歷屆學位論文的互動式 StoryMap：依研究區域與主題，沿時間軸捲動瀏覽 2011–2024 年的學生研究。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://wenlab501.github.io/storymap.html">
+<link rel="icon" type="image/jpeg" href="assets/Wenlab_logo.jpg">
+<link href="stylesheets/all-5.3.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<style>
+  /* ---------- StoryMap page-specific ---------- */
+  .sm-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px; margin:28px 0 8px; }
+  .sm-stat { background:var(--wen-cream); border:1px solid var(--wen-border); border-radius:10px; padding:18px 20px; }
+  .sm-stat-num { font-family:var(--font-h); font-weight:800; font-size:26px; color:var(--wen-teal); line-height:1.1; }
+  .sm-stat-label { font-size:12px; color:var(--wen-text-sub); margin-top:6px; }
+
+  .sm-scrolly { position:relative; }
+  .sm-map-col { position:relative; }
+  .sm-map-inner { position:sticky; top:80px; }
+  .sm-map { width:100%; height:calc(100vh - 120px); min-height:420px; border-radius:12px;
+            border:1px solid var(--wen-border); box-shadow:var(--shadow-subtle); overflow:hidden; background:#eef3f3; }
+
+  .sm-region-chip { position:absolute; top:14px; left:14px; z-index:600;
+    background:var(--wen-navy); color:#fff; font-family:var(--font-h); font-weight:700; font-size:13px;
+    padding:7px 14px; border-radius:20px; box-shadow:var(--shadow-subtle); display:none; align-items:center; gap:6px; }
+
+  .sm-legend { position:absolute; bottom:14px; left:14px; z-index:600; background:rgba(255,255,255,.94);
+    border:1px solid var(--wen-border); border-radius:10px; padding:10px 12px; box-shadow:var(--shadow-subtle); max-width:230px; }
+  .sm-legend-title { font-family:var(--font-h); font-weight:700; font-size:11px; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--wen-text-muted); margin-bottom:7px;
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    width:100%; padding:0; background:none; border:0; text-align:left; }
+  .sm-legend-chev { display:none; font-size:12px; color:var(--wen-text-muted); transition:transform .2s; }
+  .sm-legend-items { display:flex; flex-direction:column; gap:5px; }
+  .sm-legend-item { display:flex; align-items:center; gap:8px; font-size:11.5px; color:var(--wen-text); font-family:var(--font-h); }
+  .sm-legend-item i { width:11px; height:11px; border-radius:50%; flex-shrink:0; display:inline-block; }
+
+  .sm-steps { padding:0 8px; }
+  .sm-step { min-height:78vh; display:flex; align-items:center; }
+  .sm-step:first-child { min-height:40vh; }
+  .sm-step-card { width:100%; background:#fff; border:1px solid var(--wen-border); border-left:4px solid var(--wen-teal);
+    border-radius:12px; padding:22px 24px; box-shadow:var(--shadow-subtle);
+    opacity:.4; transform:translateY(10px); transition:opacity .45s ease, transform .45s ease, box-shadow .45s ease; }
+  .sm-step.is-active .sm-step-card { opacity:1; transform:none; box-shadow:var(--shadow-hover); }
+  .sm-step-top { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .sm-year { font-family:var(--font-h); font-weight:800; font-size:20px; color:var(--wen-navy); }
+  .sm-theme { font-family:var(--font-h); font-weight:600; font-size:11px; padding:3px 10px; border-radius:20px; }
+  .sm-name { font-family:var(--font-h); font-weight:700; font-size:17px; color:var(--wen-text); margin-bottom:4px; }
+  .sm-deg { font-weight:600; font-size:12px; color:var(--wen-text-muted); }
+  .sm-region { font-size:12.5px; color:var(--wen-text-sub); margin-bottom:10px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .sm-region i { color:var(--wen-teal); }
+  .sm-approx { font-size:10.5px; color:#9c7a2e; background:#f6efdd; border-radius:12px; padding:1px 8px; font-weight:600; }
+  .sm-title { font-size:13.5px; color:var(--wen-text); line-height:1.7; margin-bottom:12px; }
+  .sm-link { font-family:var(--font-h); font-weight:600; font-size:12.5px; color:var(--wen-teal); display:inline-flex; align-items:center; gap:5px; }
+  .sm-link:hover { color:var(--wen-navy); }
+
+  .sm-intro-card { border-left-color:var(--wen-navy) !important; opacity:1 !important; transform:none !important; }
+  .sm-intro-card .sm-name { font-size:19px; }
+
+  /* Mobile-only active-info panel (hidden on desktop; cards are used there) */
+  .sm-active-panel { display:none; background:#fff; border:1px solid var(--wen-border);
+    border-left:4px solid var(--wen-teal); border-radius:12px; padding:16px 18px; margin-top:10px;
+    box-shadow:var(--shadow-subtle); }
+
+  @media (min-width: 992px) {
+    .sm-grid { display:flex; align-items:flex-start; gap:28px; }
+    .sm-map-col { flex:1 1 60%; position:sticky; top:80px; align-self:flex-start; }
+    .sm-map-inner { position:static; }
+    .sm-steps-col { flex:0 0 400px; max-width:430px; }
+  }
+  @media (max-width: 991.98px) {
+    .sm-map-col { position:sticky; top:80px; z-index:5; margin-bottom:0; }
+    .sm-map-inner { position:static; }
+    .sm-map { height:38vh; min-height:300px; box-shadow:var(--shadow-hover); }
+    .sm-steps-col { position:relative; z-index:1; }
+    /* phones: cards are replaced by the fixed info panel under the map;
+       the step blocks stay as invisible scroll triggers. */
+    .sm-step-card { display:none; }
+    .sm-step { min-height:50vh; }
+    .sm-step:first-child { min-height:18vh; }
+    .sm-active-panel { display:block; }
+    /* collapsible legend so it doesn't cover the small map */
+    .sm-legend { max-width:none; }
+    .sm-legend-title { margin-bottom:0; cursor:pointer; }
+    .sm-legend-chev { display:inline-block; }
+    .sm-legend-items { display:none; margin-top:7px; }
+    .sm-legend.open .sm-legend-items { display:flex; }
+    .sm-legend.open .sm-legend-chev { transform:rotate(180deg); }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<section class="page-header" style="background:url('assets/team-header-bg.png') center 65%/cover, #2d5561;padding:80px 24px 60px;">
+  <div class="container">
+    <h1 data-zh="研究走過的地方" data-en="Where Our Research Has Been">研究走過的地方</h1>
+    <p style="max-width:600px;line-height:1.85;"
+       data-zh="WenLab 自 2011 年以來培育的每一篇學位論文，都對應到一塊真實的土地。沿著時間軸往下捲動，地圖會帶你飛往每位學生的研究現場——從臺南的登革熱、臺北捷運的人流，到東京的都市公園、東南亞的疫情輸入，乃至全球尺度的蟲媒傳染病風險。"
+       data-en="Every thesis WenLab has nurtured since 2011 maps onto a real place. Scroll down the timeline and the map flies to each student's study area — from dengue in Tainan and crowd flows in the Taipei MRT, to urban parks in Tokyo, imported epidemics across Southeast Asia, and global-scale mosquito-borne disease risk.">
+      WenLab 自 2011 年以來培育的每一篇學位論文，都對應到一塊真實的土地。沿著時間軸往下捲動，地圖會帶你飛往每位學生的研究現場——從台南的登革熱、台北捷運的人流，到東京的都市公園、東南亞的疫情輸入，乃至全球尺度的蟲媒傳染病風險。</p>
+  </div>
+</section>
+
+<!-- StoryMap -->
+<section class="section-py sm-scrolly" style="padding-top:32px;">
+  <div class="container" style="max-width:1280px;">
+    <div class="sm-grid">
+
+      <!-- sticky map -->
+      <div class="sm-map-col">
+        <div class="sm-map-inner">
+          <div style="position:relative;">
+            <div id="sm-map" class="sm-map"></div>
+            <div id="sm-region-chip" class="sm-region-chip"></div>
+            <div class="sm-legend" id="sm-legend">
+              <button type="button" class="sm-legend-title" id="sm-legend-toggle" aria-expanded="true">
+                <span data-zh="研究主題" data-en="Themes">研究主題</span>
+                <i class="bi bi-chevron-down sm-legend-chev"></i>
+              </button>
+              <div id="sm-legend-items" class="sm-legend-items"></div>
+            </div>
+          </div>
+          <!-- mobile-only: active thesis info, pinned under the map -->
+          <div id="sm-active-panel" class="sm-active-panel"></div>
+        </div>
+      </div>
+
+      <!-- scrolling steps -->
+      <div class="sm-steps-col">
+        <div class="sm-steps">
+          <!-- intro step -->
+          <div class="sm-step">
+            <div class="sm-step-card sm-intro-card">
+              <div class="sm-name" data-zh="開始這趟旅程" data-en="Begin the journey">開始這趟旅程</div>
+              <div class="sm-title" data-zh="往下捲動，跟著每一位畢業生的研究足跡走過臺灣與世界。點地圖上的標記也能跳到對應的論文。"
+                   data-en="Scroll down to follow each graduate's research footprint across Taiwan and the world. You can also click a marker to jump to its thesis.">
+                往下捲動，跟著每一位畢業生的研究足跡走過臺灣與世界。點地圖上的標記也能跳到對應的論文。</div>
+            </div>
+          </div>
+          <!-- thesis steps injected by storymap.js -->
+          <div id="sm-steps"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Closing / link to full list -->
+<section class="section-py" style="background:linear-gradient(135deg, var(--wen-navy) 0%, #102a47 100%);color:white;">
+  <div class="container" style="max-width:1000px;text-align:center;">
+    <h3 style="font-family:var(--font-h);font-weight:800;font-size:1.5rem;margin-bottom:12px;"
+        data-zh="完整校友名單" data-en="Full Alumni List">完整校友名單</h3>
+    <p style="opacity:.85;font-size:15px;line-height:1.8;max-width:620px;margin:0 auto 22px;"
+       data-zh="想看以表格呈現的完整歷屆畢業生與論文清單，請前往團隊頁面。"
+       data-en="For the complete alumni and thesis list in table form, visit the team page.">
+      想看以表格呈現的完整歷屆畢業生與論文清單，請前往團隊頁面。</p>
+    <a href="team.html" class="btn-primary-wen" style="background:#fff;color:var(--wen-navy);">
+      <i class="bi bi-people"></i> <span data-zh="前往團隊頁面" data-en="Go to Team page">前往團隊頁面</span>
+    </a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+<script src="js/storymap-data.js"></script>
+<script src="js/storymap.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+// ============================== NEWS TIMELINE ==============================
+.news-timeline {
+  position: relative;
+  padding-left: 28px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 12px;
+    bottom: 12px;
+    width: 2px;
+    background: $wen-border;
+  }
+}
+
+.news-item {
+  position: relative;
+  background: $white;
+  border: 1px solid $wen-border;
+  border-radius: $border-radius-lg;
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  box-shadow: $shadow-subtle;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 22px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $wen-teal;
+    border: 3px solid $wen-cream;
+    box-shadow: 0 0 0 1px $wen-border;
+  }
+}
+
+.news-date {
+  font-family: $font-h;
+  font-weight: 700;
+  font-size: 12px;
+  color: $wen-teal;
+  letter-spacing: .05em;
+}
+
+.news-cat {
+  display: inline-block;
+  background: $wen-navy;
+  color: $white;
+  font-family: $font-h;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin: 4px 0 8px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.news-title {
+  font-family: $font-h;
+  font-weight: 700;
+  font-size: 17px;
+  color: $wen-text;
+  margin-bottom: 6px;
+}
+
+.news-body {
+  font-size: 14px;
+  color: $wen-text-sub;
+  line-height: 1.75;
+  margin-bottom: 8px;
+}
+
+.news-link {
+  font-family: $font-h;
+  font-weight: 600;
+  font-size: 13px;
+  color: $wen-teal;
+  text-decoration: none;
+
+  &:hover { color: $wen-blue; }
+}
