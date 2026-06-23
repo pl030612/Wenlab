@@ -17,6 +17,7 @@
   html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 
   .research-layout { display:grid; grid-template-columns:248px 1fr; gap:40px; align-items:start; }
+  .research-layout > * { min-width:0; }   /* let grid items shrink so inner overflow-x scrolls instead of widening the page */
   .research-toc-wrap { position:sticky; top:88px; }
   .research-toc { background:#fff; border:1px solid var(--wen-border); border-radius:.625rem; box-shadow:var(--shadow-subtle); padding:14px; }
   .research-toc .toc-title { font-family:var(--font-h); font-weight:800; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--wen-text-muted); padding:4px 10px 12px; }
