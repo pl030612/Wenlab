@@ -11248,6 +11248,18 @@ body {
   transition: all 200ms ease-out;
 }
 
+/* Tutorials: featured book cover (left) + stacked links (right), equal height */
+.tutorials-layout { display: grid; grid-template-columns: minmax(260px, 340px) 1fr; gap: 16px; align-items: stretch; }
+.tutorial-book { display: flex; flex-direction: column; background: #fff; border: 1px solid #D0D5D6; border-radius: 0.625rem; overflow: hidden; text-decoration: none; transition: all 200ms ease-out; }
+.tutorial-book:hover { border-color: #5F9598; box-shadow: 0 8px 32px rgba(6,30,41,.16); transform: translateY(-2px); }
+.tutorial-book-img { flex: 1 1 auto; min-height: 200px; overflow: hidden; background: #FAFBFB; padding: 22px; }
+.tutorial-book-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.tutorial-book-cap { display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-top: 1px solid #D0D5D6; }
+.tutorial-book:hover .tutorial-arrow { color: #5F9598; transform: translateX(4px); }
+.tutorials-list { display: flex; flex-direction: column; gap: 12px; }
+.tutorials-list .tutorial-card { flex: 1; height: auto; }
+@media (max-width: 767.98px) { .tutorials-layout { grid-template-columns: 1fr; } }
+
 .course-row {
   padding: 16px 0;
   border-bottom: 1px solid #D0D5D6;
