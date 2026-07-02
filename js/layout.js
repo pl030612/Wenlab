@@ -90,7 +90,7 @@
 
         <div class="footer-bottom text-center">
           <span style="color:rgba(255,255,255,.5);font-size:13px;"
-                data-zh="© 2026 溫在弘教授 · 地理計算科學資訊研究室 · 國立臺灣大學 | Web Design by 廖思采"
+                data-zh="© 2026 溫在弘教授 · 地理計算科學資訊研究室 | Web Design by 廖思采"
                 data-en="© 2026 Prof. Wen-Hung Tung · Geospatial Computing Lab · National Taiwan University | Web Design by Szu-Tsai Liao">© 2026 溫在弘教授 · 空間分析與地理資訊研究室 · 國立臺灣大學 | Web Design by 廖思采</span>
         </div>
       </div>
