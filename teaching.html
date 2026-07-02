@@ -79,18 +79,24 @@
        data-zh="開放式線上教材：R 空間分析、網絡分析、地圖視覺化與互動式網頁應用。"
        data-en="Open educational resources: R spatial analysis, network analytics, thematic mapping, and interactive web applications.">
       開放式線上教材：R 空間分析、網絡分析、地圖視覺化與互動式網頁應用。</p>
-    <div class="row g-3">
-      <div class="col-md-6">
-        <a href="https://wenlab501.github.io/SpatialAnalysis/" target="_blank" class="tutorial-card">
-          <div class="tutorial-icon"><i class="bi bi-book"></i></div>
+    <div class="tutorials-layout">
+
+      <!-- Featured book cover on the left -->
+      <a href="https://wenlab501.github.io/SpatialAnalysis/" target="_blank" class="tutorial-book" aria-label="空間分析 (R 教材)">
+        <div class="tutorial-book-img">
+          <img src="assets/book.webp" alt="空間分析 (R 教材) 線上教科書封面" loading="lazy">
+        </div>
+        <div class="tutorial-book-cap">
           <div>
             <div class="tutorial-title" data-zh="空間分析 (R 教材)" data-en="Spatial Analysis (R Textbook)">空間分析 (R 教材)</div>
             <div class="tutorial-desc" data-zh="完整線上教科書與 R 程式碼範例" data-en="Complete online textbook with R code examples">完整線上教科書與 R 程式碼範例</div>
           </div>
           <i class="bi bi-arrow-right tutorial-arrow"></i>
-        </a>
-      </div>
-      <div class="col-md-6">
+        </div>
+      </a>
+
+      <!-- Remaining tutorials stacked on the right -->
+      <div class="tutorials-list">
         <a href="https://wenlab501.github.io/GEOG2017/" target="_blank" class="tutorial-card">
           <div class="tutorial-icon"><i class="bi bi-collection"></i></div>
           <div>
@@ -99,8 +105,6 @@
           </div>
           <i class="bi bi-arrow-right tutorial-arrow"></i>
         </a>
-      </div>
-      <div class="col-md-6">
         <a href="http://homepage.ntu.edu.tw/~wenthung/R_Network/" target="_blank" class="tutorial-card">
           <div class="tutorial-icon"><i class="bi bi-diagram-3"></i></div>
           <div>
@@ -109,18 +113,6 @@
           </div>
           <i class="bi bi-arrow-right tutorial-arrow"></i>
         </a>
-      </div>
-      <div class="col-md-6">
-        <a href="http://homepage.ntu.edu.tw/~wenthung/R_Spatial/WebMapping.htm" target="_blank" class="tutorial-card">
-          <div class="tutorial-icon"><i class="bi bi-globe"></i></div>
-          <div>
-            <div class="tutorial-title" data-zh="互動式網頁地圖 (R Shiny)" data-en="Interactive Web Mapping (R Shiny)">互動式網頁地圖 (R Shiny)</div>
-            <div class="tutorial-desc" data-zh="使用 R Markdown 與 Shiny 建立地圖應用" data-en="Build mapping apps with R Markdown and Shiny">使用 R Markdown 與 Shiny 建立地圖應用</div>
-          </div>
-          <i class="bi bi-arrow-right tutorial-arrow"></i>
-        </a>
-      </div>
-      <div class="col-md-6">
         <a href="https://wenlab501.github.io/tutorial/qgis_tutor/index" target="_blank" class="tutorial-card">
           <div class="tutorial-icon"><i class="bi bi-map"></i></div>
           <div>
@@ -129,8 +121,6 @@
           </div>
           <i class="bi bi-arrow-right tutorial-arrow"></i>
         </a>
-      </div>
-      <div class="col-md-6">
         <a href="https://wenlab501.github.io/tutorial/gephi_tutor/index" target="_blank" class="tutorial-card">
           <div class="tutorial-icon"><i class="bi bi-bezier2"></i></div>
           <div>
@@ -140,6 +130,7 @@
           <i class="bi bi-arrow-right tutorial-arrow"></i>
         </a>
       </div>
+
     </div>
   </div>
 </section>
