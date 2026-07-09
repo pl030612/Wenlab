@@ -25,6 +25,7 @@ window.WENLAB_STORYMAP = {
   /* ---- Map locations. lat/lng = approximate centroid of the study area ---- */
   regions: {
     tainan: { lat: 22.99, lng: 120.21, zh: "台南",            en: "Tainan",            group: "TW" },
+    kaohsiung: { lat: 22.63, lng: 120.30, zh: "高雄",         en: "Kaohsiung",         group: "TW" },
     taipei: { lat: 25.04, lng: 121.56, zh: "台北",            en: "Taipei",            group: "TW" },
     ntu:    { lat: 25.017, lng: 121.539, zh: "臺大校園",       en: "NTU Campus",        group: "TW" },
     taiwan: { lat: 23.75, lng: 120.95, zh: "台灣（全國）",     en: "Taiwan (nationwide)", group: "TW" },
@@ -80,6 +81,20 @@ window.WENLAB_STORYMAP = {
       theme: "mobility", region: "taiwan", approx: true
     },
     {
+      name_zh: "王成驊", name_en: "Cheng-Hua Wang", degree_zh: "碩士", degree_en: "Master", year: 2024,
+      title_zh: "在早期流行病傳播過程中自相似性之貝氏樹演算法",
+      title_en: "A Bayesian Tree Algorithm of Self-similarity in Early Stage Epidemic Transmission Process",
+      link: "https://tdr.lib.ntu.edu.tw/handle/123456789/91697",
+      theme: "method", region: "method", approx: false
+    },
+    {
+      name_zh: "游孟純", name_en: "Meng-Chun You", degree_zh: "碩士", degree_en: "Master", year: 2024,
+      title_zh: "以 OPTICS 演算法識別階層性密度差異的時空群聚結構",
+      title_en: "An OPTICS-based Algorithm for Identifying Spatio-Temporal Density Faults in Hierarchical Clustering Structures",
+      link: "https://hdl.handle.net/11296/zx3qwp",
+      theme: "method", region: "method", approx: false
+    },
+    {
       name_zh: "徐品翰", name_en: "Pin-Han Hsu", degree_zh: "碩士", degree_en: "Master", year: 2023,
       title_zh: "建立共識自組織對映於預測登革熱擴散的時空範圍",
       title_en: "Creating a consensus self-organizing map for predicting dengue diffusion in time and space",
@@ -120,6 +135,27 @@ window.WENLAB_STORYMAP = {
       title_en: "An Optimal Zoning Algorithm For Preserving of Spatial Heterogeneity",
       link: "https://tdr.lib.ntu.edu.tw/handle/123456789/83249",
       theme: "method", region: "method", approx: false
+    },
+    {
+      name_zh: "許庭萱", name_en: "Ting-Hsuan Hsu", degree_zh: "碩士", degree_en: "Master", year: 2023,
+      title_zh: "比較高鐵站不同選址地點對周圍住宅價格之影響：特徵價格模型的多層次分析",
+      title_en: "Comparing Neighborhood Residential Prices of the Different Planning Sites of High-Speed Rail Station: Multilevel Hedonic Price Modeling",
+      link: "https://hdl.handle.net/11296/9bv75g",
+      theme: "mobility", region: "taiwan", approx: true
+    },
+    {
+      name_zh: "李亞芃", name_en: "Ya-Peng Lee", degree_zh: "碩士", degree_en: "Master", year: 2022,
+      title_zh: "檢定在傳染病熱區邊緣的風險增長趨勢：以高雄登革熱爆發為例",
+      title_en: "Examining the increase of the disease risk on the edge of epidemic hotspot areas –– a case study of dengue outbreaks in Kaohsiung, Taiwan",
+      link: "https://hdl.handle.net/11296/22y54j",
+      theme: "dengue", region: "kaohsiung", approx: false
+    },
+    {
+      name_zh: "岳昀", name_en: "Yun Yueh", degree_zh: "碩士", degree_en: "Master", year: 2022,
+      title_zh: "評估跨國人口移動與全球城市經濟互動之關聯性：Multi-level ERGM 分析",
+      title_en: "Identifying the associations between cross-country human mobility and city-level economic interaction: Multi-level ERGM analysis",
+      link: "https://hdl.handle.net/11296/73fd88",
+      theme: "mobility", region: "global", approx: false
     },
     {
       name_zh: "郭飛鷹", name_en: "Fei-Ying Kuo", degree_zh: "博士", degree_en: "Ph.D.", year: 2021,
@@ -190,6 +226,13 @@ window.WENLAB_STORYMAP = {
       title_en: "The scaling properties of point clustering phenomena",
       link: "https://ndltd.ncl.edu.tw/r/58psp4",
       theme: "network", region: "method", approx: false
+    },
+    {
+      name_zh: "方皓聖", name_en: "Hao-Sheng Fang", degree_zh: "碩士", degree_en: "Master", year: 2018,
+      title_zh: "隱藏式馬可夫模型於交通事故發生率的預測",
+      title_en: "A Hidden Markov Model for Predicting the Incidence of Traffic Accidents",
+      link: "",
+      theme: "mobility", region: "taiwan", approx: true
     },
     {
       name_zh: "馮維義", name_en: "Wei-yi Fong", degree_zh: "碩士", degree_en: "Master", year: 2017,
